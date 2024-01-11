@@ -16,7 +16,7 @@ timezone:
 
 title: Sophia Hu # the main title
 
-tagline: Math-Stat + CS @ UMD | Data Engineer  # it will display as the sub-title
+tagline: Math-Stat + CS @ UMD  # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   A minimal, responsive and feature-rich Jekyll theme for technical writing.
