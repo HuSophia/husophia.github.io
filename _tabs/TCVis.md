@@ -1,3 +1,7 @@
+---
+layout: page
+---
+
 ## Hurricane Visualization 
 
 **Background:**
