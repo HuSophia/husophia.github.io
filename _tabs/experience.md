@@ -1,6 +1,6 @@
 ---
 title: Experience
-layout: page
+layout: archives
 icon: fas fa-briefcase
 order: 2
 ---
