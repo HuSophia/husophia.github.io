@@ -13,7 +13,8 @@ Below is a list summarizing my technical and teaching experience. Please view my
 - Promoted to full-time position following summer internship based on good performance rating.
 - Collaborated with biostatisticians and data scientists to design and implement FDA-compliant ETL data pipelines (CDISC and ADaM).
 - Tested, documented, and validated clinical trial data applications, ensuring expedited delivery of new medicines to patients.
-**Tech Stack**: Python, Scala, SQL, AWS (S3,EC2,Lambda), Apache Spark
+
+- **Tech Stack**: Python, Scala, SQL, AWS (S3,EC2,Lambda), Apache Spark
   
 **Research and Development Intern** @ [NOAA](https://www.star.nesdis.noaa.gov/star/index.php) (05/20/2021 - 06/15/2022)
 - Built TCVis using Python and Jupyter to automate the process of visualizing and analyzing a tropical cyclone path for NOAA scientists in real-time as data is collected by satellites 
@@ -24,13 +25,15 @@ Below is a list summarizing my technical and teaching experience. Please view my
 **Software Engineer Intern** @ [NASA](https://www.nasa.gov/goddard) (05/30/2021 – 08/30/2021)
 - Implemented algorithmic enhancements to MODIS processing pipeline, optimizing data extraction for HDF files and improving accuracy in assessing vegetation health.
 - Analyzed seasonal and interannual variations in FPAR with ARIMA modeling, Fourier analysis, and statistical tests (t-tests, ANOVA) using Python for NASA's ecological and climate research.
-**Tech Stack**: Python, Statsmodels, Scikit-learn, HDFView
+  
+- **Tech Stack**: Python, Statsmodels, Scikit-learn, HDFView
 
 **Statistical Programmer Intern** @[NSF](https://www.nsf.org) (05/1/2020- 12/31/2020)
 - Built and debugged programs for generating SAS datasets from clinical databases and external data sources, adhering to rigorous clinical protocols (CDISC) and SDTM guidelines.
 - Conducted reviews of CRF data specifications, devised SAS macros for efficient data cleaning and reporting, and wrote SAS programs to produce tables, listings, figures, and analysis datasets for clinical studies.
 - Presented deliverables to programming and statistics leads.
-**Tech Stack**: SAS, R, SQL, Excel
+  
+- **Tech Stack**: SAS, R, SQL, Excel
   
 
 ## Teaching/Grading Experience
