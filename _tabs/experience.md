@@ -23,7 +23,8 @@ Below is a summary of my technical and teaching experience. Please view my full 
 
 **Software Engineer Intern** @ [NASA](https://www.nasa.gov/goddard) (05/30/2021 – 08/30/2021)
 - Implemented algorithmic enhancements to MODIS processing pipeline, optimizing data extraction for HDF files and improving accuracy in assessing vegetation health.
-- Analyzed seasonal and interannual variations in FPAR with ARIMA modeling, Fourier analysis, and statistical tests (t-tests, ANOVA) using Python for NASA's ecological and climate research.\ **Tech Stack**: Python, Statsmodels, Scikit-learn, HDFView
+- Analyzed seasonal and interannual variations in FPAR with ARIMA modeling, Fourier analysis, and statistical tests (t-tests, ANOVA) using Python for NASA's ecological and climate research.\
+**Tech Stack**: Python, Statsmodels, Scikit-learn, HDFView
 
 **Statistical Programmer Intern** @[NSF](https://www.nsf.org) (05/1/2020- 12/31/2020)
 - Built and debugged programs for generating SAS datasets from clinical databases and external data sources, adhering to rigorous clinical protocols (CDISC) and SDTM guidelines.
