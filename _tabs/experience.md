@@ -18,13 +18,12 @@ Below is a summary of my technical and teaching experience. Please view my full 
 **Research and Development Intern** @ [NOAA](https://www.star.nesdis.noaa.gov/star/index.php) (05/20/2021 - 06/15/2022)
 - Built TCVis using Python and Jupyter to automate the process of visualizing and analyzing a tropical cyclone path for NOAA scientists in real-time as data is collected by satellites 
 - Streamlined and documented the process of merging and subsetting MIRS data files to render satellite data into 3D visualizations in ParaView 
-- Collaborated with scientists and developers at NOAA (Liu,Grassotti) to design and document the [MIRS retrieval algorithm](https://www.star.nesdis.noaa.gov/mirs/algorithm.php)\
+- Collaborated with scientists and developers at NOAA (Liu and Grassotti) to design and document the [MIRS retrieval algorithm](https://www.star.nesdis.noaa.gov/mirs/algorithm.php)\
 **Tech Stack**: Unix/Bash, Python (Plotly,Matplotlib), TensorFlow, Keras, Jupyter, ParaView 
 
 **Software Engineer Intern** @ [NASA](https://www.nasa.gov/goddard) (05/30/2021 – 08/30/2021)
 - Implemented algorithmic enhancements to MODIS processing pipeline, optimizing data extraction for HDF files and improving accuracy in assessing vegetation health.
-- Analyzed seasonal and interannual variations in FPAR with ARIMA modeling, Fourier analysis, and statistical tests (t-tests, ANOVA) using Python for NASA's ecological and climate research.\ 
-**Tech Stack**: Python, Statsmodels, Scikit-learn, HDFView
+- Analyzed seasonal and interannual variations in FPAR with ARIMA modeling, Fourier analysis, and statistical tests (t-tests, ANOVA) using Python for NASA's ecological and climate research.\ **Tech Stack**: Python, Statsmodels, Scikit-learn, HDFView
 
 **Statistical Programmer Intern** @[NSF](https://www.nsf.org) (05/1/2020- 12/31/2020)
 - Built and debugged programs for generating SAS datasets from clinical databases and external data sources, adhering to rigorous clinical protocols (CDISC) and SDTM guidelines.
@@ -48,6 +47,6 @@ Below is a summary of my technical and teaching experience. Please view my full 
 
 **Mathematics & Reading Instructor**  @ [Kumon](https://www.kumon.com/about-kumon) （06/01/2017 - 06/30/2021)
 - Instructed K-12 students in building essential math proficiency and advancing their reading skills.
-- Administered placement and achievement assessments to gauge initial proficiency and monitored students' ongoing development.
-- Evaluated and provided feedback on weekly assignments, while actively participating in administrative responsibilities, including managing phone inquiries, leading parent conferences, training fellow staff members, and overseeing inventory management.
+- Administered placement and achievement assessments to gauge initial proficiency and monitored students' progress.
+- Evaluated weekly assignments and participated in administrative duties, including managing phone inquiries, leading parent conferences, training fellow staff members, and overseeing inventory management.
 
