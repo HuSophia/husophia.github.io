@@ -5,7 +5,7 @@ icon: fas fa-terminal
 order: 3
 ---
 
-**A list of software projects I've worked on throughout my internships and classes**
+**A catalog of software creations stemming from both my internship experiences and academic pursuits:**
 
 + TSkin DNN - Deep neural network model for predicting sea surface skin temperature biases  
 + TCVis - Python visualization and query of tropical cyclone paths for real-time hurricane reporting and analysis
