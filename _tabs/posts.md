@@ -1,6 +1,6 @@
 ---
 title: Posts
-layout: categories
+layout: posts
 icon: fas fa-feather
 order: 4
 ---
