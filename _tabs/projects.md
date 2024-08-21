@@ -8,7 +8,7 @@ order: 3
 **Some of my software creations from internship experiences and academic pursuits:**
 
 + TSkin DNN - Deep neural network model for predicting sea surface skin temperature biases  
-+ [TCVis](2021-12-14-TCVis.md) - Python visualization and query of tropical cyclone paths for real-time hurricane reporting and analysis
++ TCVis- Python visualization and query of tropical cyclone paths for real-time hurricane reporting and analysis
 + AutoNetCDF - Software for streamlining the merging and subsetting of satellite netCDF files for ease of data extraction 
 + HydroViz - 3D visualization of hydrometeor clouds in ParaView (Virtual Reality environment) for climate change research 
 + GameRec - Collaborative filtering-based video game recommendation system designed to predict users' future game purchases
