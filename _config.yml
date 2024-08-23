@@ -16,7 +16,7 @@ timezone: America/New_York
 
 title: Sophia Hu # the main title
 
-tagline: Math-Stat + CS @ UMD  # it will display as the sub-title
+tagline:   # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   Personal website detailing my academic and work experiences
