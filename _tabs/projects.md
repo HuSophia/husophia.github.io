@@ -5,12 +5,31 @@ icon: fas fa-terminal
 order: 3
 ---
 
-**Some of my software creations from internship experiences and academic pursuits:**
+### TSkin DNN 
+- Deep neural network model for predicting sea surface skin temperature biases.
 
-+ TSkin DNN - Deep neural network model for predicting sea surface skin temperature biases  
-+ TCVis - Python visualization and query of tropical cyclone paths for real-time hurricane reporting and analysis
-+ AutoNetCDF - Software for streamlining the merging and subsetting of satellite netCDF files for ease of data extraction 
-+ HydroViz - 3D visualization of hydrometeor clouds in ParaView (Virtual Reality environment) for climate change research 
-+ GameRec - Collaborative filtering-based video game recommendation system designed to predict users' future game purchases
-+ Pawpals - A convenient, user-friendly web application that allows local pet owners to book my pet-sitting services       
+---
+
+### TCVis
+- Python visualization and query tool for tropical cyclone paths, designed for real-time hurricane reporting and analysis.
+
+---
+
+### AutoNetCDF
+Software tool to streamline merging and subsetting of netCDF files, making satellite data extraction more efficient.
+
+---
+
+### HydroViz
+- 3D visualization of hydrometeor clouds in ParaView’s Virtual Reality environment, supporting climate change research.
+
+---
+
+### GameRec
+- Collaborative filtering-based video game recommendation system created to predict users' future game purchases.
+
+---
+
+### PawPals
+- User-friendly web application allowing local pet owners to conveniently book my pet-sitting services.
 
