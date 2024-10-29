@@ -16,7 +16,7 @@ order: 3
 ---
 
 ### AutoNetCDF
-Software tool to streamline merging and subsetting of netCDF files, making satellite data extraction more efficient.
+- Software tool to streamline merging and subsetting of netCDF files, making satellite data extraction more efficient for NOAA scientists. 
 
 ---
 
