@@ -9,7 +9,7 @@ order: 1
 
 ## News
 
-<span style="display: inline-block; padding: 2px 6px; background-color: #F8F1D2; color: #977B71; border-radius: 3px; font-weight: bold; text-decoration: none;">
+<span style="display: inline-block; padding: 2px 5px; background-color: #EEE9D6; color: #CF532D; border-radius: 2px; font-weight: bold; text-decoration: none;">
     Oct. 25 - 27, 2024
 </span>
 Attended the Tech + Research Workshop and presented my research project, 
