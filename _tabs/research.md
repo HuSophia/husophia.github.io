@@ -9,7 +9,7 @@ order: 1
 
 ## News
 
-<span style="display: inline-block; padding: 2px 5px; background-color: #BCDEF1; color: white ; border-radius: 2px; font-weight: bold; text-decoration: none;">
+<span style="font-size: 0.89em; display: inline-block; padding: 2px 4px; background-color: #BCDEF1; color: white ; border-radius: 2px; font-weight: bold; text-decoration: none;">
     Oct. 25 - 27, 2024
 </span>
 <span style="font-size: 0.85em;">
