@@ -5,7 +5,7 @@ icon: fas fa-briefcase
 order: 2
 ---
 
-Below is a summary of my technical and teaching experience. Please view my full CV [here](https://docs.google.com/document/d/1G6c1xp2CCbHs1r2JQFj6s8zGwP8RtviIAg7b5JXx0kM/edit?usp=sharing). 
+Below is a summary of my technical and teaching experience. Please view my full CV [here](). 
 
 ## Technical Experience
 
