@@ -1,4 +1,3 @@
-
 /* ─── THEME TOKENS ─── */
 :root[data-theme="autumn"] {
   --bg:        #F5F0E8;
@@ -21,6 +20,7 @@
   --tag-bg:    #E0D9ED;
 }
 
+/* ─── RESET ─── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; }
@@ -39,12 +39,13 @@ body {
   display: grid;
   grid-template-columns: 220px 1fr;
   min-height: 100vh;
+  min-width: 0;
 }
 
 /* ─── SIDEBAR ─── */
 aside {
-  position: fixed;
-  top: 0; left: 0;
+  position: sticky;
+  top: 0;
   width: 220px;
   height: 100vh;
   padding: 3rem 1.75rem;
@@ -55,6 +56,8 @@ aside {
   background: var(--bg);
   transition: background 0.45s, border-color 0.45s;
   z-index: 10;
+  flex-shrink: 0;
+  align-self: start;
 }
 
 .logo {
@@ -148,8 +151,9 @@ input:checked + .slider::before {
 
 /* ─── MAIN CONTENT ─── */
 main {
-  margin-left: 220px;
+  min-width: 0;
   padding: 0 5vw 8rem;
+  box-sizing: border-box;
 }
 
 /* ─── HERO ─── */
@@ -683,7 +687,7 @@ section:last-child { border-bottom: none; }
   .toggle-label { display: none; }
   .theme-icons { margin-top: 0; font-size: 0.58rem; }
 
-  main { margin-left: 0; padding: 0 4vw 6rem; }
+  main { padding: 0 4vw 6rem; }
   .hero { padding: 3.5rem 0 3rem; }
   section { max-width: 100%; }
 
