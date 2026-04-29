@@ -2,22 +2,22 @@
 
 /* Sage (green + beige) */
 :root[data-theme="sage"] {
-  --bg:        #F6F3EB;  
+  --bg:        #d5edcc;  
   --bg-subtle: #EDE7DA;  
   --fg:        #2b552b;  
   --fg-muted:  #718171;  
   --accent:    #69b587;  
   --accent-2:  #A3C9A8;  
-  --border:    #D8D2C4;  
+  --border:    #c1d2b8;  
   --tag-bg:    #E4F0E6;  
 }
 
 /* Lavender */
 :root[data-theme="lavender"] {
-  --bg:        #F2F0F5;
-  --bg-subtle: #E8E4EF;
-  --fg:        #1E1A2B;
-  --fg-muted:  #7A748E;
+  --bg:        #dfd4f1;
+  --bg-subtle: #d2cbe0;
+  --fg:        #312949;
+  --fg-muted:  #8379a2;
   --accent:    #9B87C0;
   --accent-2:  #B8A9D9;
   --border:    #D5CFDF;
@@ -26,8 +26,8 @@
 
 /* Mist Blue */
 :root[data-theme="mist-blue"] {
-  --bg:        #F0F5F9;
-  --bg-subtle: #E3EDF5;
+  --bg:        #b5ccde;
+  --bg-subtle: #cde3f4;
   --fg:        #1C2A35;
   --fg-muted:  #6E8596;
   --accent:    #7FAFCC;
@@ -38,9 +38,9 @@
 
 /* Chiffon (soft yellow) */
 :root[data-theme="chiffon"] {
-  --bg:        #FFF9E8;
+  --bg:        #f3ead1;
   --bg-subtle: #FFF2CC;
-  --fg:        #3A3320;
+  --fg:        #e5cd8c;
   --fg-muted:  #a09c92;
   --accent:    #E8C76A;
   --accent-2:  #F2D98C;
