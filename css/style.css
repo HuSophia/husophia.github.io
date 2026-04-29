@@ -47,6 +47,7 @@
   --border:    #E6DDB8;
   --tag-bg:    #FFF4D6;
 }
+
 /* ─── RESET ─── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -59,6 +60,39 @@ body {
   transition: background 0.45s ease, color 0.45s ease;
   min-height: 100vh;
   overflow-x: hidden;
+}
+
+/* ─── RADIAL THEME WASH ─── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* Assign unique animations to force a trigger when the attribute changes */
+:root[data-theme="sage"] body::after { animation: wash-sage 0.8s ease-out forwards; }
+:root[data-theme="lavender"] body::after { animation: wash-lav 0.8s ease-out forwards; }
+:root[data-theme="mist-blue"] body::after { animation: wash-mist 0.8s ease-out forwards; }
+:root[data-theme="chiffon"] body::after { animation: wash-chiffon 0.8s ease-out forwards; }
+
+@keyframes wash-sage {
+  0% { opacity: 0.6; background: radial-gradient(circle at 110px 180px, #69b587 0%, transparent 40%); transform: scale(1); }
+  100% { opacity: 0; background: radial-gradient(circle at 110px 180px, #F6F3EB 0%, transparent 60%); transform: scale(5); }
+}
+@keyframes wash-lav {
+  0% { opacity: 0.6; background: radial-gradient(circle at 110px 180px, #9B87C0 0%, transparent 40%); transform: scale(1); }
+  100% { opacity: 0; background: radial-gradient(circle at 110px 180px, #F2F0F5 0%, transparent 60%); transform: scale(5); }
+}
+@keyframes wash-mist {
+  0% { opacity: 0.6; background: radial-gradient(circle at 110px 180px, #7FAFCC 0%, transparent 40%); transform: scale(1); }
+  100% { opacity: 0; background: radial-gradient(circle at 110px 180px, #F0F5F9 0%, transparent 60%); transform: scale(5); }
+}
+@keyframes wash-chiffon {
+  0% { opacity: 0.6; background: radial-gradient(circle at 110px 180px, #E8C76A 0%, transparent 40%); transform: scale(1); }
+  100% { opacity: 0; background: radial-gradient(circle at 110px 180px, #FFF9E8 0%, transparent 60%); transform: scale(5); }
 }
 
 /* ─── LAYOUT ─── */
@@ -125,92 +159,64 @@ nav a:hover, nav a.active {
   border-bottom-color: var(--accent);
 }
 
-/* ─── FLOWER TOGGLE ─── */
-
-.toggle {
+/* ─── FLOWER PALETTE (4 THEMES) ─── */
+.flower-palette {
   position: relative;
-  width: 48px;
-  height: 48px; /* make it square for flower */
-  cursor: pointer;
+  width: 52px;
+  height: 52px;
+  margin-top: 1rem;
 }
 
-.toggle input {
-  opacity: 0;
-  width: 0;
-  height: 0;
+.flower-palette input {
+  display: none;
 }
 
-/* Base flower container */
-.slider {
+.flower-center {
   position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Flower center */
-.slider::before {
-  content: '';
-  width: 10px;
-  height: 10px;
-  background: var(--accent);
-  border-radius: 50%;
-  z-index: 2;
-  transition: transform 0.4s ease, background 0.4s ease;
-}
-
-/* Petals (4 soft petals using box-shadow trick) */
-.slider::after {
-  content: '';
-  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 14px;
   height: 14px;
-  background: var(--accent-2);
+  background: var(--fg);
   border-radius: 50%;
-  opacity: 0.7;
-  transform: scale(0.6);
-  transition: transform 0.5s cubic-bezier(.4,0,.2,1), opacity 0.4s;
-
-  box-shadow:
-    0 -10px 0 0 var(--accent-2),
-    0  10px 0 0 var(--accent-2),
-    10px 0 0 0 var(--accent-2),
-   -10px 0 0 0 var(--accent-2);
+  z-index: 5;
+  transition: background 0.45s ease;
 }
 
-/* Bloom animation on toggle */
-input:checked + .slider::after {
-  transform: scale(1.1);
+.petal {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.65;
+  transition: transform 0.4s cubic-bezier(.4,0,.2,1), opacity 0.3s, box-shadow 0.3s;
+  z-index: 4;
+}
+
+/* Align petals as a 4-leaf clover */
+.petal.sage       { top: 0; left: 50%; transform: translateX(-50%); background: #69b587; }
+.petal.lavender   { bottom: 0; left: 50%; transform: translateX(-50%); background: #9B87C0; }
+.petal.mist-blue  { top: 50%; left: 0; transform: translateY(-50%); background: #7FAFCC; }
+.petal.chiffon    { top: 50%; right: 0; transform: translateY(-50%); background: #E8C76A; }
+
+/* Pre-bloom Hover */
+.petal.sage:hover       { opacity: 1; transform: translateX(-50%) scale(1.15); }
+.petal.lavender:hover   { opacity: 1; transform: translateX(-50%) scale(1.15); }
+.petal.mist-blue:hover  { opacity: 1; transform: translateY(-50%) scale(1.15); }
+.petal.chiffon:hover    { opacity: 1; transform: translateY(-50%) scale(1.15); }
+
+/* Bloom / Active Selection */
+.petal:has(input:checked) {
   opacity: 1;
-
-  box-shadow:
-    0 -14px 0 0 var(--accent),
-    0  14px 0 0 var(--accent),
-    14px 0 0 0 var(--accent),
-   -14px 0 0 0 var(--accent);
+  z-index: 6;
+  box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
 }
-
-/* center grows slightly when blooming */
-input:checked + .slider::before {
-  transform: scale(1.4);
-  background: var(--accent);
-}
-
-/* subtle hover = "pre-bloom" */
-.toggle:hover .slider::after {
-  transform: scale(0.85);
-  opacity: 0.85;
-}
-
-@keyframes bloomPulse {
-  0%, 100% { transform: scale(1.05); }
-  50% { transform: scale(1.12); }
-}
-
-input:checked + .slider::after {
-  animation: bloomPulse 2.5s ease-in-out infinite;
-}
+.petal.sage:has(input:checked)       { transform: translateX(-50%) scale(1.25); }
+.petal.lavender:has(input:checked)   { transform: translateX(-50%) scale(1.25); }
+.petal.mist-blue:has(input:checked)  { transform: translateY(-50%) scale(1.25); }
+.petal.chiffon:has(input:checked)    { transform: translateY(-50%) scale(1.25); }
 
 /* ─── MAIN CONTENT ─── */
 main {
@@ -755,10 +761,8 @@ section:last-child { border-bottom: none; }
     border-bottom: none;
   }
 
-  .toggle-wrap { margin-top: 0; margin-left: auto; display: flex; align-items: center; gap: 0.6rem; }
-  .toggle-label { display: none; }
-  .theme-icons { margin-top: 0; font-size: 0.58rem; }
-
+  .flower-palette { margin-top: 0; margin-left: auto; width: 44px; height: 44px; }
+  
   main { padding: 0 4vw 6rem; }
   .hero { padding: 3.5rem 0 3rem; }
   section { max-width: 100%; }
@@ -807,9 +811,8 @@ section:last-child { border-bottom: none; }
 @media (max-width: 380px) {
   nav a { font-size: 0.56rem; padding: 0.2rem 0.3rem; }
   .hero h1 { font-size: 1.9rem; }
-  .toggle { width: 40px; height: 22px; }
-  .slider::before { width: 14px; height: 14px; }
-  input:checked + .slider::before { transform: translateX(18px); }
+  .flower-palette { width: 38px; height: 38px; }
+  .petal { width: 14px; height: 14px; }
 }
 
 /* ── Wide: cap content width ── */
