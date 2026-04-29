@@ -190,3 +190,118 @@
     <section id="projects">
       <p class="sec-label">Software — <em>click a card to flip</em></p>
       <div class="project-grid">
+
+        <div class="flip-card fade-up" onclick="toggleFlip(this)">
+          <div class="flip-inner">
+            <div class="flip-front">
+             
+              <img src="images/tcmirs.png"
+                   alt="tcmirs project"
+                   onerror="this.parentElement.classList.add('no-img');this.remove()" />
+              <div class="flip-front-overlay">
+                <h3>tcmirs</h3>
+                <div class="flip-hint">Click to read more →</div>
+              </div>
+            </div>
+            <div class="flip-back">
+              <div class="card-meta">Python · NOAA R&amp;D Internship</div>
+              <h3>tcmirs</h3>
+             <p>Automates construction of analysis-ready datasets by merging hurricane track data with satellite retrievals. Enables downstream modeling of spatiotemporal physical systems by aligning heterogeneous, high-dimensional observations into a unified representation for statistical and machine learning workflows.</p>
+              <div class="flip-back-footer">
+                <a class="gh-link" href="https://github.com/yourusername/tcmirs"
+                   target="_blank" rel="noopener" onclick="event.stopPropagation()">View on GitHub ↗</a>
+                <button class="flip-close"
+                        onclick="event.stopPropagation();toggleFlip(this.closest('.flip-card'))">← Flip back</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card fade-up" onclick="toggleFlip(this)">
+          <div class="flip-inner">
+            <div class="flip-front">
+            
+              <img src="images/tcviz.png"
+                   alt="tc-viz project"
+                   onerror="this.parentElement.classList.add('no-img');this.remove()" />
+              <div class="flip-front-overlay">
+                <h3>tc-viz</h3>
+                <div class="flip-hint">Click to read more →</div>
+              </div>
+            </div>
+            <div class="flip-back">
+              <div class="card-meta">Python · NOAA R&amp;D Internship</div>
+              <h3>tc-viz</h3>
+              <p>Visualization tool for tropical cyclone lifecycles using IBTrACS data. Generates maps of storm track and wind radii across four quadrants, alongside wind intensity and pressure timeseries. Used by NOAA scientists for storm severity analysis and reporting.</p>
+              <div class="tags"><span class="tag">Visualization</span><span class="tag">IBTrACS</span><span class="tag">Tropical Cyclones</span></div>
+              <div class="flip-back-footer">
+                <a class="gh-link" href="https://github.com/yourusername/tc-viz"
+                   target="_blank" rel="noopener" onclick="event.stopPropagation()">View on GitHub ↗</a>
+                <button class="flip-close"
+                        onclick="event.stopPropagation();toggleFlip(this.closest('.flip-card'))">← Flip back</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card fade-up" onclick="toggleFlip(this)">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <img src="images/3dhydro.png"
+                   alt="mirs-hydro-3d project"
+                   onerror="this.parentElement.classList.add('no-img');this.remove()" />
+              <div class="flip-front-overlay">
+                <h3>mirs-hydro-3d</h3>
+                <div class="flip-hint">Click to read more →</div>
+              </div>
+            </div>
+            <div class="flip-back">
+              <div class="card-meta">Python · ParaView · NOAA R&amp;D Internship</div>
+              <h3>mirs-hydro-3d</h3>
+              <p><p>Constructs 3D volumetric representations of hydrometeor fields within tropical cyclones from satellite data. Enables exploration of complex physical structures and supports future development of data-driven world models for atmospheric systems.</p></p>
+              <div class="tags"><span class="tag">3D Viz</span><span class="tag">MIRS</span><span class="tag">ParaView</span><span class="tag">netCDF</span></div>
+              <div class="flip-back-footer">
+                <a class="gh-link" href="https://github.com/yourusername/mirs-hydro-3d"
+                   target="_blank" rel="noopener" onclick="event.stopPropagation()">View on GitHub ↗</a>
+                <button class="flip-close"
+                        onclick="event.stopPropagation();toggleFlip(this.closest('.flip-card'))">← Flip back</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="blog">
+      <p class="sec-label">Blog</p>
+      <div class="blog-list">
+
+        <div class="blog-item fade-up" onclick="openPost('diffusion')">
+          <span class="blog-title">Can we trust diffusion models? Uncertainty quantification beyond sample quality</span>
+          <span class="blog-date">Apr 2025</span>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<div id="blog-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-backdrop" onclick="closePost()"></div>
+  <div class="modal-panel">
+    <div class="modal-close">
+      <button onclick="closePost()" aria-label="Close post">✕ Close</button>
+    </div>
+    <div class="modal-meta" id="modal-date"></div>
+    <h2 class="modal-title" id="modal-title"></h2>
+    <hr class="modal-divider" />
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<script src="js/posts.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
