@@ -2,14 +2,14 @@
 
 /* Sage (green + beige) */
 :root[data-theme="sage"] {
-  --bg:        #d5edcc;  
-  --bg-subtle: #bad6b8;  
-  --fg:        #2b552b;  
-  --fg-muted:  #718171;  
-  --accent:    #69b587;  
-  --accent-2:  #A3C9A8;  
+  --bg:        #dfebda;  
+  --bg-subtle: #b2cdb1;  
+  --fg:        #316231fa;  
+  --fg-muted:  #6b7e6b;  
+  --accent:    #66a47e;  
+  --accent-2:  #aacfaf;  
   --border:    #c1d2b8;  
-  --tag-bg:    #758b79;  
+  --tag-bg:    #9bb7a0;  
 }
 
 /* Lavender */
@@ -26,10 +26,10 @@
 
 /* Mist Blue */
 :root[data-theme="mist-blue"] {
-  --bg:        #b5ccde;
-  --bg-subtle: #cde3f4;
-  --fg:        #1C2A35;
-  --fg-muted:  #6E8596;
+  --bg:        #bfd7e9;
+  --bg-subtle: #c4dbec;
+  --fg:        #1d3140;
+  --fg-muted:  #88a3b8;
   --accent:    #7FAFCC;
   --accent-2:  #A9C9DD;
   --border:    #D3DEE7;
@@ -38,14 +38,14 @@
 
 /* Chiffon (soft yellow) */
 :root[data-theme="chiffon"] {
-  --bg:        #f3ead1;
-  --bg-subtle: #FFF2CC;
-  --fg:        #e5cd8c;
-  --fg-muted:  #a09c92;
+  --bg:        #f1ead5;
+  --bg-subtle: #c7bd9f;
+  --fg:        #4a3d1b;
+  --fg-muted:  #b4ac97;
   --accent:    #E8C76A;
   --accent-2:  #F2D98C;
   --border:    #E6DDB8;
-  --tag-bg:    #FFF4D6;
+  --tag-bg:    #f4e7c3;
 }
 
 /* ─── RESET ─── */
