@@ -6,6 +6,7 @@
 function openPost(id) {
   const post = POSTS[id];
   if (!post) return;
+  
   document.getElementById('modal-date').textContent  = post.date;
   document.getElementById('modal-title').textContent = post.title;
   document.getElementById('modal-body').innerHTML    = post.body;
@@ -14,7 +15,11 @@ function openPost(id) {
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
 
-  // make post bookmarkable / shareable
+  // Reset scroll position to the top of the modal panel
+  const modalPanel = document.querySelector('.modal-panel');
+  if (modalPanel) modalPanel.scrollTop = 0;
+
+  // Make post bookmarkable / shareable
   history.pushState({ post: id }, '', '#post-' + id);
 }
 
@@ -49,24 +54,52 @@ function toggleFlip(card) {
   card.classList.toggle('flipped');
 }
 
-/* ── Theme toggle ── */
-const themeToggle = document.getElementById('themeToggle');
-const htmlEl      = document.documentElement;
+/* ── Theme toggle (Updated for Flower Palette) ── */
+const themeRadios = document.querySelectorAll('.flower-palette input[type="radio"]');
+const themeLabel  = document.getElementById("theme-name");
+
+const labelsMap = {
+  "sage": "Sage",
+  "lavender": "Lavender",
+  "mist-blue": "Mist Blue",
+  "chiffon": "Chiffon"
+};
 
 // Persist theme across page loads
-const savedTheme = localStorage.getItem('theme') || 'autumn';
-htmlEl.dataset.theme  = savedTheme;
-themeToggle.checked   = savedTheme === 'lilac';
+const savedTheme = localStorage.getItem('theme') || 'sage';
+document.documentElement.setAttribute('data-theme', savedTheme);
 
-themeToggle.addEventListener('change', () => {
-  const theme = themeToggle.checked ? 'lilac' : 'autumn';
-  htmlEl.dataset.theme = theme;
-  localStorage.setItem('theme', theme);
+// Initialize correct label and radio button state on load
+if (themeLabel) {
+  themeLabel.innerHTML = `<span>${labelsMap[savedTheme] || "Sage"}</span>`;
+}
+
+themeRadios.forEach(radio => {
+  // Check the radio button that matches the saved theme
+  if (radio.value === savedTheme) {
+    radio.checked = true;
+  }
+
+  // Listen for changes
+  radio.addEventListener('change', (e) => {
+    if (e.target.checked) {
+      const selectedTheme = e.target.value;
+      
+      // Apply theme
+      document.documentElement.setAttribute("data-theme", selectedTheme);
+      
+      // Update label
+      if (themeLabel) themeLabel.innerHTML = `<span>${labelsMap[selectedTheme]}</span>`;
+      
+      // Save to local storage
+      localStorage.setItem('theme', selectedTheme);
+    }
+  });
 });
 
 /* ── Active nav link on scroll ── */
 const sections = document.querySelectorAll('section[id]');
-const navLinks  = document.querySelectorAll('#nav a');
+const navLinks = document.querySelectorAll('#nav a');
 
 function updateActiveNav() {
   let current = '';
