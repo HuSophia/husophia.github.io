@@ -39,7 +39,7 @@
 /* Chiffon (soft yellow) */
 :root[data-theme="chiffon"] {
   --bg:        #f1ead5;
-  --bg-subtle: #c7bd9f;
+  --bg-subtle: #ebe3cc;
   --fg:        #4a3d1b;
   --fg-muted:  #b4ac97;
   --accent:    #E8C76A;
