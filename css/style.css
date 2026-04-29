@@ -3,13 +3,13 @@
 /* Sage (green + beige) */
 :root[data-theme="sage"] {
   --bg:        #d5edcc;  
-  --bg-subtle: #EDE7DA;  
+  --bg-subtle: #bad6b8;  
   --fg:        #2b552b;  
   --fg-muted:  #718171;  
   --accent:    #69b587;  
   --accent-2:  #A3C9A8;  
   --border:    #c1d2b8;  
-  --tag-bg:    #E4F0E6;  
+  --tag-bg:    #758b79;  
 }
 
 /* Lavender */
