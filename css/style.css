@@ -1,5 +1,7 @@
 /* ─── THEME TOKENS ─── */
-:root[data-theme="botanical"] {
+
+/* Sage (green + beige) */
+:root[data-theme="sage"] {
   --bg:        #F6F3EB;  
   --bg-subtle: #EDE7DA;  
   --fg:        #2b552b;  
@@ -10,7 +12,8 @@
   --tag-bg:    #E4F0E6;  
 }
 
-:root[data-theme="amethyst"] {
+/* Lavender */
+:root[data-theme="lavender"] {
   --bg:        #F2F0F5;
   --bg-subtle: #E8E4EF;
   --fg:        #1E1A2B;
@@ -21,6 +24,29 @@
   --tag-bg:    #E0D9ED;
 }
 
+/* Mist Blue */
+:root[data-theme="mist-blue"] {
+  --bg:        #F0F5F9;
+  --bg-subtle: #E3EDF5;
+  --fg:        #1C2A35;
+  --fg-muted:  #6E8596;
+  --accent:    #7FAFCC;
+  --accent-2:  #A9C9DD;
+  --border:    #D3DEE7;
+  --tag-bg:    #E4F1F8;
+}
+
+/* Chiffon (soft yellow) */
+:root[data-theme="chiffon"] {
+  --bg:        #FFF9E8;
+  --bg-subtle: #FFF2CC;
+  --fg:        #3A3320;
+  --fg-muted:  #a09c92;
+  --accent:    #E8C76A;
+  --accent-2:  #F2D98C;
+  --border:    #E6DDB8;
+  --tag-bg:    #FFF4D6;
+}
 /* ─── RESET ─── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -99,55 +125,91 @@ nav a:hover, nav a.active {
   border-bottom-color: var(--accent);
 }
 
-/* ─── THEME TOGGLE ─── */
-.toggle-wrap { margin-top: auto; }
-
-.toggle-label {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.62rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--fg-muted);
-  display: block;
-  margin-bottom: 0.6rem;
-}
+/* ─── FLOWER TOGGLE ─── */
 
 .toggle {
   position: relative;
   width: 48px;
-  height: 26px;
+  height: 48px; /* make it square for flower */
   cursor: pointer;
 }
-.toggle input { opacity: 0; width: 0; height: 0; }
 
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Base flower container */
 .slider {
   position: absolute;
   inset: 0;
-  background: var(--border);
-  border-radius: 26px;
-  transition: background 0.35s;
-}
-.slider::before {
-  content: '';
-  position: absolute;
-  width: 18px; height: 18px;
-  left: 4px; top: 4px;
-  border-radius: 50%;
-  background: var(--accent);
-  transition: transform 0.35s cubic-bezier(.4,0,.2,1), background 0.35s;
-}
-input:checked + .slider::before {
-  transform: translateX(22px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.theme-icons {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  margin-top: 0.5rem;
-  font-size: 0.62rem;
-  font-family: 'DM Mono', monospace;
-  color: var(--fg-muted);
+/* Flower center */
+.slider::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  border-radius: 50%;
+  z-index: 2;
+  transition: transform 0.4s ease, background 0.4s ease;
+}
+
+/* Petals (4 soft petals using box-shadow trick) */
+.slider::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: var(--accent-2);
+  border-radius: 50%;
+  opacity: 0.7;
+  transform: scale(0.6);
+  transition: transform 0.5s cubic-bezier(.4,0,.2,1), opacity 0.4s;
+
+  box-shadow:
+    0 -10px 0 0 var(--accent-2),
+    0  10px 0 0 var(--accent-2),
+    10px 0 0 0 var(--accent-2),
+   -10px 0 0 0 var(--accent-2);
+}
+
+/* Bloom animation on toggle */
+input:checked + .slider::after {
+  transform: scale(1.1);
+  opacity: 1;
+
+  box-shadow:
+    0 -14px 0 0 var(--accent),
+    0  14px 0 0 var(--accent),
+    14px 0 0 0 var(--accent),
+   -14px 0 0 0 var(--accent);
+}
+
+/* center grows slightly when blooming */
+input:checked + .slider::before {
+  transform: scale(1.4);
+  background: var(--accent);
+}
+
+/* subtle hover = "pre-bloom" */
+.toggle:hover .slider::after {
+  transform: scale(0.85);
+  opacity: 0.85;
+}
+
+@keyframes bloomPulse {
+  0%, 100% { transform: scale(1.05); }
+  50% { transform: scale(1.12); }
+}
+
+input:checked + .slider::after {
+  animation: bloomPulse 2.5s ease-in-out infinite;
 }
 
 /* ─── MAIN CONTENT ─── */

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="Botanical">
+<html lang="en" data-theme="sage">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -35,15 +35,17 @@
     </nav>
 
     <div class="toggle-wrap">
-      <span class="toggle-label">Theme</span>
-      <label class="toggle" aria-label="Toggle theme">
-        <input type="checkbox" id="themeToggle" />
-        <span class="slider"></span>
-      </label>
-      <div class="theme-icons">
-        <span>Botanical</span>&nbsp;/&nbsp;<span>Amethyst</span>
-      </div>
-    </div>
+  <span class="toggle-label">Theme</span>
+
+  <label class="toggle" aria-label="Change theme">
+    <input type="checkbox" id="theme-toggle" />
+    <span class="slider"></span>
+  </label>
+
+  <div class="theme-icons" id="theme-name">
+    <span>Sage</span>
+  </div>
+</div>
   </aside>
 
   <!-- ══════════ MAIN ══════════ -->
@@ -305,6 +307,24 @@
 <!-- Scripts (posts data must load before main.js) -->
 <script src="js/posts.js"></script>
 <script src="js/main.js"></script>
+<script>
+const themes = ["sage", "lavender", "mist-blue", "chiffon"];
+const labels = ["Sage", "Lavender", "Mist Blue", "Chiffon"];
 
+let current = 0;
+
+const toggle = document.getElementById("theme-toggle");
+const label = document.getElementById("theme-name");
+
+toggle.addEventListener("click", () => {
+  current = (current + 1) % themes.length;
+
+  document.documentElement.setAttribute("data-theme", themes[current]);
+  label.innerHTML = `<span>${labels[current]}</span>`;
+
+  // control bloom state
+  toggle.checked = current !== 0;
+});
+</script>
 </body>
 </html>
