@@ -1,51 +1,51 @@
 /* ─── THEME TOKENS ─── */
 
-/* Sage (green + beige) */
+/* Pastel Sage */
 :root[data-theme="sage"] {
-  --bg:        #dfebda;  
-  --bg-subtle: #b2cdb1;  
-  --fg:        #316231fa;  
-  --fg-muted:  #6b7e6b;  
-  --accent:    #66a47e;  
-  --accent-2:  #aacfaf;  
-  --border:    #c1d2b8;  
-  --tag-bg:    #9bb7a0;  
+  --bg:        #f0f5ef;  
+  --bg-subtle: #e8efe6;  
+  --fg:        #354538;  
+  --fg-muted:  #5b6e5f;  
+  --accent:    #8fbc9f;  
+  --accent-2:  #b5d6c1;  
+  --border:    #cce0d1;  
+  --tag-bg:    #d5e5d8;  
 }
 
-/* Lavender */
+/* Pastel Lavender */
 :root[data-theme="lavender"] {
-  --bg:        #dfd4f1;
-  --bg-subtle: #d2cbe0;
-  --fg:        #312949;
-  --fg-muted:  #8379a2;
-  --accent:    #9B87C0;
-  --accent-2:  #B8A9D9;
-  --border:    #D5CFDF;
-  --tag-bg:    #E0D9ED;
+  --bg:        #f4f0f8;
+  --bg-subtle: #ebe4f2;  
+  --fg:        #362e42;  
+  --fg-muted:  #695e7c;  
+  --accent:    #b6a3d4;
+  --accent-2:  #d0c3e8;
+  --border:    #d5cbe3;
+  --tag-bg:    #dfd7ea;
 }
 
-/* Mist Blue */
+/* Pastel Mist Blue */
 :root[data-theme="mist-blue"] {
-  --bg:        #bfd7e9;
-  --bg-subtle: #c4dbec;
-  --fg:        #1d3140;
-  --fg-muted:  #88a3b8;
-  --accent:    #7FAFCC;
-  --accent-2:  #A9C9DD;
-  --border:    #D3DEE7;
-  --tag-bg:    #E4F1F8;
+  --bg:        #f0f5f9;
+  --bg-subtle: #e6eff5;  
+  --fg:        #2b3942;  
+  --fg-muted:  #5c7283;  
+  --accent:    #9ec2db;
+  --accent-2:  #bdd7ea;
+  --border:    #c6dbe8;
+  --tag-bg:    #d4e4f0;
 }
 
-/* Chiffon (soft yellow) */
+/* Pastel Chiffon */
 :root[data-theme="chiffon"] {
-  --bg:        #f1ead5;
-  --bg-subtle: #ebe3cc;
-  --fg:        #4a3d1b;
-  --fg-muted:  #b4ac97;
-  --accent:    #E8C76A;
-  --accent-2:  #F2D98C;
-  --border:    #E6DDB8;
-  --tag-bg:    #f4e7c3;
+  --bg:        #fdfaf2;
+  --bg-subtle: #f8f1e1;  
+  --fg:        #423b28;  
+  --fg-muted:  #7d735b;  
+  --accent:    #eed382;
+  --accent-2:  #f4e3a8;
+  --border:    #eadebe;
+  --tag-bg:    #f2ead0;
 }
 
 /* ─── RESET ─── */
@@ -72,27 +72,26 @@ body::after {
   opacity: 0;
 }
 
-/* Assign unique animations to force a trigger when the attribute changes */
 :root[data-theme="sage"] body::after { animation: wash-sage 0.8s ease-out forwards; }
 :root[data-theme="lavender"] body::after { animation: wash-lav 0.8s ease-out forwards; }
 :root[data-theme="mist-blue"] body::after { animation: wash-mist 0.8s ease-out forwards; }
 :root[data-theme="chiffon"] body::after { animation: wash-chiffon 0.8s ease-out forwards; }
 
 @keyframes wash-sage {
-  0% { opacity: 0.6; background: radial-gradient(circle at 110px 180px, #69b587 0%, transparent 40%); transform: scale(1); }
-  100% { opacity: 0; background: radial-gradient(circle at 110px 180px, #F6F3EB 0%, transparent 60%); transform: scale(5); }
+  0% { opacity: 0.6; background: radial-gradient(circle at 110px 180px, #8fbc9f 0%, transparent 40%); transform: scale(1); }
+  100% { opacity: 0; background: radial-gradient(circle at 110px 180px, #f0f5ef 0%, transparent 60%); transform: scale(5); }
 }
 @keyframes wash-lav {
-  0% { opacity: 0.6; background: radial-gradient(circle at 110px 180px, #9B87C0 0%, transparent 40%); transform: scale(1); }
-  100% { opacity: 0; background: radial-gradient(circle at 110px 180px, #F2F0F5 0%, transparent 60%); transform: scale(5); }
+  0% { opacity: 0.6; background: radial-gradient(circle at 110px 180px, #b6a3d4 0%, transparent 40%); transform: scale(1); }
+  100% { opacity: 0; background: radial-gradient(circle at 110px 180px, #f4f0f8 0%, transparent 60%); transform: scale(5); }
 }
 @keyframes wash-mist {
-  0% { opacity: 0.6; background: radial-gradient(circle at 110px 180px, #7FAFCC 0%, transparent 40%); transform: scale(1); }
-  100% { opacity: 0; background: radial-gradient(circle at 110px 180px, #F0F5F9 0%, transparent 60%); transform: scale(5); }
+  0% { opacity: 0.6; background: radial-gradient(circle at 110px 180px, #9ec2db 0%, transparent 40%); transform: scale(1); }
+  100% { opacity: 0; background: radial-gradient(circle at 110px 180px, #f0f5f9 0%, transparent 60%); transform: scale(5); }
 }
 @keyframes wash-chiffon {
-  0% { opacity: 0.6; background: radial-gradient(circle at 110px 180px, #E8C76A 0%, transparent 40%); transform: scale(1); }
-  100% { opacity: 0; background: radial-gradient(circle at 110px 180px, #FFF9E8 0%, transparent 60%); transform: scale(5); }
+  0% { opacity: 0.6; background: radial-gradient(circle at 110px 180px, #eed382 0%, transparent 40%); transform: scale(1); }
+  100% { opacity: 0; background: radial-gradient(circle at 110px 180px, #fdfaf2 0%, transparent 60%); transform: scale(5); }
 }
 
 /* ─── LAYOUT ─── */
@@ -195,11 +194,11 @@ nav a:hover, nav a.active {
   z-index: 4;
 }
 
-/* Align petals as a 4-leaf clover */
-.petal.sage       { top: 0; left: 50%; transform: translateX(-50%); background: #69b587; }
-.petal.lavender   { bottom: 0; left: 50%; transform: translateX(-50%); background: #9B87C0; }
-.petal.mist-blue  { top: 50%; left: 0; transform: translateY(-50%); background: #7FAFCC; }
-.petal.chiffon    { top: 50%; right: 0; transform: translateY(-50%); background: #E8C76A; }
+/* Align petals as a 4-leaf clover - Updated with Pastel Colors */
+.petal.sage       { top: 0; left: 50%; transform: translateX(-50%); background: #8fbc9f; }
+.petal.lavender   { bottom: 0; left: 50%; transform: translateX(-50%); background: #b6a3d4; }
+.petal.mist-blue  { top: 50%; left: 0; transform: translateY(-50%); background: #9ec2db; }
+.petal.chiffon    { top: 50%; right: 0; transform: translateY(-50%); background: #eed382; }
 
 /* Pre-bloom Hover */
 .petal.sage:hover       { opacity: 1; transform: translateX(-50%) scale(1.15); }
@@ -392,7 +391,8 @@ section:last-child { border-bottom: none; }
 
 .flip-card {
   perspective: 1000px;
-  height: 280px;
+  height: 580px;
+  width: 100%;
   cursor: pointer;
 }
 
@@ -480,6 +480,7 @@ section:last-child { border-bottom: none; }
   display: flex;
   flex-direction: column;
   padding: 1.5rem 1.4rem;
+  overflow-y: auto; 
 }
 .flip-back .card-meta { margin-bottom: 0.65rem; }
 .flip-back h3 {
@@ -789,7 +790,7 @@ section:last-child { border-bottom: none; }
 
   .card-grid { grid-template-columns: 1fr; }
   .project-grid { grid-template-columns: 1fr; }
-  .flip-card { height: 300px; }
+  .flip-card { height: 480px; }
 
   /* Modal full-width on mobile */
   #blog-modal { padding: 1rem; align-items: flex-end; }
