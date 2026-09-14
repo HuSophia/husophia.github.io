@@ -1,57 +1,60 @@
-/* ============ CSS Variables for 4 Color Schemes ============ */
+/* ============ CSS Variables for 4 Pastel Color Schemes ============ */
 :root {
-  /* Sage (default) */
-  --bg: #e8f0e3;
-  --surface: rgba(255, 255, 255, 0.6);
-  --surface-solid: #ffffffd9;
-  --primary: #2f4f3a;
-  --accent: #5b7f5e;
-  --text: #1e2b22;
-  --text-soft: #3a4d3e;
-  --border: #bfd4b8;
-  --shadow: 0 15px 30px -12px rgba(47, 79, 58, 0.18);
-  --sidebar-bg: rgba(255, 255, 255, 0.8);
+  /* Sage (default) — soft mint green */
+  --bg: #eef5ea;
+  --surface: rgba(255, 255, 255, 0.7);
+  --surface-solid: #ffffffeb;
+  --primary: #5a7d63;
+  --accent: #8fb996;
+  --text: #35463a;
+  --text-soft: #5f7566;
+  --border: #d4e3d0;
+  --shadow: 0 15px 30px -12px rgba(120, 160, 130, 0.15);
+  --sidebar-bg: rgba(255, 255, 255, 0.85);
   --sidebar-width: 280px;
   --mono: 'SF Mono', 'Monaco', 'Menlo', monospace;
 }
 
 [data-theme="chiffon"] {
-  --bg: #faf3e0;
-  --surface: rgba(255, 250, 235, 0.7);
-  --surface-solid: #fff9e6e6;
-  --primary: #8a6e2f;
-  --accent: #b5954a;
-  --text: #3e3422;
-  --text-soft: #5e5135;
-  --border: #e2d3ae;
-  --shadow: 0 15px 30px -12px rgba(146, 116, 51, 0.2);
-  --sidebar-bg: rgba(255, 250, 235, 0.85);
+  /* Chiffon — soft butter yellow */
+  --bg: #fdf8e8;
+  --surface: rgba(255, 252, 240, 0.75);
+  --surface-solid: #fffcf0eb;
+  --primary: #a4874a;
+  --accent: #dcc38a;
+  --text: #4d4228;
+  --text-soft: #7a6b4a;
+  --border: #efe2c4;
+  --shadow: 0 15px 30px -12px rgba(200, 175, 120, 0.18);
+  --sidebar-bg: rgba(255, 252, 240, 0.9);
 }
 
 [data-theme="lavender"] {
-  --bg: #eee9fa;
-  --surface: rgba(255, 255, 255, 0.5);
-  --surface-solid: #faf8ffea;
-  --primary: #4b3f72;
-  --accent: #7765a8;
-  --text: #2d2440;
-  --text-soft: #4d4066;
-  --border: #d3c8e8;
-  --shadow: 0 15px 30px -12px rgba(77, 63, 102, 0.2);
-  --sidebar-bg: rgba(250, 248, 255, 0.85);
+  /* Lavender — soft lilac */
+  --bg: #f3eefa;
+  --surface: rgba(255, 255, 255, 0.65);
+  --surface-solid: #fbf9ffeb;
+  --primary: #7a6ba8;
+  --accent: #a89ad1;
+  --text: #3f3557;
+  --text-soft: #665a85;
+  --border: #e0d6ef;
+  --shadow: 0 15px 30px -12px rgba(150, 130, 190, 0.16);
+  --sidebar-bg: rgba(251, 249, 255, 0.9);
 }
 
 [data-theme="mistblue"] {
-  --bg: #e4f0f7;
-  --surface: rgba(255, 255, 255, 0.55);
-  --surface-solid: #f4fbfdea;
-  --primary: #24465e;
-  --accent: #4d7d9c;
-  --text: #1c2e3a;
-  --text-soft: #335266;
-  --border: #c4d9e6;
-  --shadow: 0 15px 30px -12px rgba(56, 100, 130, 0.2);
-  --sidebar-bg: rgba(244, 251, 253, 0.85);
+  /* Mist blue — soft sky */
+  --bg: #ecf4f9;
+  --surface: rgba(255, 255, 255, 0.68);
+  --surface-solid: #f6fbfeeb;
+  --primary: #5c7f9c;
+  --accent: #92b4cc;
+  --text: #2f4254;
+  --text-soft: #5a7288;
+  --border: #d3e3ee;
+  --shadow: 0 15px 30px -12px rgba(120, 155, 185, 0.16);
+  --sidebar-bg: rgba(246, 251, 254, 0.9);
 }
 
 /* ============ Reset & Base ============ */
@@ -173,7 +176,7 @@ body {
   background: var(--accent);
   color: white;
   border-color: var(--accent);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .theme-toggle {
@@ -192,7 +195,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
   font-size: 0.85rem;
 }
 
@@ -205,10 +208,11 @@ body {
   box-shadow: 0 0 0 2px var(--accent);
 }
 
-.btn-sage { background: #e8f0e3; color: #2f4f3a; }
-.btn-chiffon { background: #faf3e0; color: #8a6e2f; }
-.btn-lavender { background: #eee9fa; color: #4b3f72; }
-.btn-mistblue { background: #e4f0f7; color: #24465e; }
+/* Pastel swatches */
+.btn-sage { background: #eef5ea; color: #5a7d63; }
+.btn-chiffon { background: #fdf8e8; color: #a4874a; }
+.btn-lavender { background: #f3eefa; color: #7a6ba8; }
+.btn-mistblue { background: #ecf4f9; color: #5c7f9c; }
 
 /* ============ Main Content ============ */
 .main-content {
@@ -268,7 +272,7 @@ body {
 .avatar:hover {
   transform: rotate(360deg) scale(1.15);
   border-color: var(--primary);
-  box-shadow: 0 0 30px rgba(91, 127, 94, 0.5), 0 20px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 30px rgba(143, 185, 150, 0.4), 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .avatar:hover img {
@@ -312,7 +316,7 @@ body {
   font-weight: 500;
 }
 
-/* ============ Google Scholar Button ============ */
+/* ============ Google Scholar Button (soft pastel) ============ */
 .scholar-btn {
   display: inline-flex;
   align-items: center;
@@ -325,7 +329,7 @@ body {
   padding: 0.75rem 1.5rem;
   border-radius: 3rem;
   margin-bottom: 1rem;
-  box-shadow: 0 6px 16px -6px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 6px 16px -6px rgba(120, 140, 130, 0.3);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -338,7 +342,7 @@ body {
 
 .scholar-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 12px 24px -8px rgba(120, 140, 130, 0.4);
 }
 
 .scholar-btn:hover i {
@@ -352,7 +356,7 @@ body {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
   transition: left 0.5s ease;
 }
 
@@ -379,15 +383,15 @@ body {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #27ae60;
-  box-shadow: 0 0 0 0 rgba(39, 174, 96, 0.7);
+  background: #8fd19e;
+  box-shadow: 0 0 0 0 rgba(143, 209, 158, 0.7);
   animation: pulseDot 2s infinite;
 }
 
 @keyframes pulseDot {
-  0% { box-shadow: 0 0 0 0 rgba(39, 174, 96, 0.7); }
-  70% { box-shadow: 0 0 0 10px rgba(39, 174, 96, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(39, 174, 96, 0); }
+  0% { box-shadow: 0 0 0 0 rgba(143, 209, 158, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(143, 209, 158, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(143, 209, 158, 0); }
 }
 
 /* ============ Section Titles ============ */
@@ -404,7 +408,7 @@ body {
   letter-spacing: -0.5px;
 }
 
-/* ============ Research Banner ============ */
+/* ============ Research Banner (soft gradient) ============ */
 .research-theme-banner {
   background: linear-gradient(135deg, var(--accent), var(--primary));
   border-radius: 1.5rem;
@@ -414,7 +418,7 @@ body {
   align-items: center;
   gap: 1.5rem;
   color: white;
-  box-shadow: var(--shadow);
+  box-shadow: 0 15px 30px -12px rgba(120, 140, 130, 0.3);
   position: relative;
   overflow: hidden;
 }
@@ -426,7 +430,7 @@ body {
   right: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.18) 0%, transparent 70%);
   animation: bannerGlow 3s ease-in-out infinite;
 }
 
@@ -439,7 +443,7 @@ body {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -462,11 +466,11 @@ body {
 }
 
 .theme-text p {
-  opacity: 0.9;
+  opacity: 0.95;
   font-size: 1rem;
 }
 
-/* ============ Research Cards ============ */
+/* ============ Research Cards (ALWAYS VISIBLE) ============ */
 .research-card {
   background: var(--surface-solid);
   backdrop-filter: blur(8px);
@@ -475,7 +479,7 @@ body {
   padding: 1.8rem;
   margin-bottom: 1.5rem;
   border: 1px solid var(--border);
-  box-shadow: 0 6px 16px -8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 16px -8px rgba(140, 150, 140, 0.12);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -505,11 +509,12 @@ body {
   color: white;
 }
 
-.research-badge[data-type="core"] { background: #4a90e2; }
-.research-badge[data-type="new"] { background: #ff6b6b; }
-.research-badge[data-type="theory"] { background: #9b59b6; }
-.research-badge[data-type="uq"] { background: #f39c12; }
-.research-badge[data-type="apps"] { background: #27ae60; }
+/* Softer pastel badge tints */
+.research-badge[data-type="core"] { background: #a4c8e8; }
+.research-badge[data-type="new"] { background: #f4a8a8; }
+.research-badge[data-type="theory"] { background: #c1a8dd; }
+.research-badge[data-type="uq"] { background: #f5c98f; }
+.research-badge[data-type="apps"] { background: #9dd4a8; }
 
 .research-card h3 {
   color: var(--primary);
@@ -537,11 +542,11 @@ body {
 }
 
 .research-card.featured {
-  border-left: 4px solid #4a90e2;
+  border-left: 4px solid #a4c8e8;
 }
 
 .research-card.featured-new {
-  border-left: 4px solid #ff6b6b;
+  border-left: 4px solid #f4a8a8;
   position: relative;
 }
 
@@ -552,10 +557,11 @@ body {
   right: 1rem;
   font-size: 1.5rem;
   animation: flicker 2s infinite;
+  opacity: 0.85;
 }
 
 @keyframes flicker {
-  0%, 100% { opacity: 1; }
+  0%, 100% { opacity: 0.9; }
   50% { opacity: 0.5; }
 }
 
@@ -577,7 +583,7 @@ body {
 
 .tag:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(120, 140, 130, 0.25);
 }
 
 /* ============ Flow Matching Diagram ============ */
@@ -689,7 +695,7 @@ body {
 .publication-item:hover {
   transform: translateX(10px);
   border-color: var(--accent);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(140, 150, 140, 0.12);
 }
 
 .pub-icon {
@@ -720,8 +726,8 @@ body {
 
 .pub-status {
   display: inline-block;
-  background: #ffd93d;
-  color: #333;
+  background: #fdeeb0;
+  color: #6e5b1f;
   padding: 0.2rem 0.6rem;
   border-radius: 0.5rem;
   font-size: 0.72rem;
@@ -729,7 +735,7 @@ body {
   margin-top: 0.3rem;
 }
 
-/* ============ Projects ============ */
+/* ============ Projects (ALWAYS VISIBLE) ============ */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -743,7 +749,7 @@ body {
   border-radius: 1.2rem;
   padding: 1.8rem;
   border: 1px solid var(--border);
-  box-shadow: 0 6px 16px -8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 16px -8px rgba(140, 150, 140, 0.12);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   opacity: 1;
   transform: translateY(0);
@@ -802,7 +808,7 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
   color: white;
   padding: 1rem;
   font-size: 0.9rem;
@@ -816,7 +822,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(60, 70, 65, 0.75);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   display: flex;
