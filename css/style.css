@@ -476,14 +476,9 @@ body {
   margin-bottom: 1.5rem;
   border: 1px solid var(--border);
   box-shadow: 0 6px 16px -8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-.research-card.visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -749,12 +744,7 @@ body {
   padding: 1.8rem;
   border: 1px solid var(--border);
   box-shadow: 0 6px 16px -8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-.project-card.visible {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   opacity: 1;
   transform: translateY(0);
 }
