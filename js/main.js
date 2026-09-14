@@ -1,127 +1,329 @@
-/* ════════════════════════════════════════════
-   main.js — Site interactions
-   ════════════════════════════════════════════ */
+(function () {
+  'use strict';
 
-/* ── Blog modal ── */
-function openPost(id) {
-  const post = POSTS[id];
-  if (!post) return;
-  
-  document.getElementById('modal-date').textContent  = post.date;
-  document.getElementById('modal-title').textContent = post.title;
-  document.getElementById('modal-body').innerHTML    = post.body;
+  /* ============================================================
+     1. THEME TOGGLE
+     ============================================================ */
+  const themeButtons = document.querySelectorAll('.theme-btn');
+  const body = document.body;
 
-  const modal = document.getElementById('blog-modal');
-  modal.classList.add('open');
-  document.body.style.overflow = 'hidden';
-
-  // Reset scroll position to the top of the modal panel
-  const modalPanel = document.querySelector('.modal-panel');
-  if (modalPanel) modalPanel.scrollTop = 0;
-
-  // Make post bookmarkable / shareable
-  history.pushState({ post: id }, '', '#post-' + id);
-}
-
-function closePost() {
-  document.getElementById('blog-modal').classList.remove('open');
-  document.body.style.overflow = '';
-  history.pushState(
-    {},
-    '',
-    window.location.pathname + window.location.hash.replace(/#post-\w+/, '')
-  );
-}
-
-// Close on Escape key
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closePost();
-});
-
-// Close on browser back button
-window.addEventListener('popstate', e => {
-  if (!e.state?.post) closePost();
-});
-
-// Auto-open post if URL hash is present on load
-window.addEventListener('DOMContentLoaded', () => {
-  const match = location.hash.match(/^#post-(\w+)$/);
-  if (match) openPost(match[1]);
-});
-
-/* ── Flip project cards ── */
-function toggleFlip(card) {
-  card.classList.toggle('flipped');
-}
-
-/* ── Theme toggle (Updated for Flower Palette) ── */
-const themeRadios = document.querySelectorAll('.flower-palette input[type="radio"]');
-const themeLabel  = document.getElementById("theme-name");
-
-const labelsMap = {
-  "sage": "Sage",
-  "lavender": "Lavender",
-  "mist-blue": "Mist Blue",
-  "chiffon": "Chiffon"
-};
-
-// Persist theme across page loads
-const savedTheme = localStorage.getItem('theme') || 'sage';
-document.documentElement.setAttribute('data-theme', savedTheme);
-
-// Initialize correct label and radio button state on load
-if (themeLabel) {
-  themeLabel.innerHTML = `<span>${labelsMap[savedTheme] || "Sage"}</span>`;
-}
-
-themeRadios.forEach(radio => {
-  // Check the radio button that matches the saved theme
-  if (radio.value === savedTheme) {
-    radio.checked = true;
+  function setTheme(themeName) {
+    body.setAttribute('data-theme', themeName);
+    themeButtons.forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.theme === themeName);
+    });
+    try {
+      localStorage.setItem('personalSiteTheme', themeName);
+    } catch (e) {
+    }
   }
 
-  // Listen for changes
-  radio.addEventListener('change', (e) => {
-    if (e.target.checked) {
-      const selectedTheme = e.target.value;
-      
-      // Apply theme
-      document.documentElement.setAttribute("data-theme", selectedTheme);
-      
-      // Update label
-      if (themeLabel) themeLabel.innerHTML = `<span>${labelsMap[selectedTheme]}</span>`;
-      
-      // Save to local storage
-      localStorage.setItem('theme', selectedTheme);
+  themeButtons.forEach(btn => {
+    btn.addEventListener('click', () => setTheme(btn.dataset.theme));
+  });
+
+  // Load saved theme, fallback to sage
+  const savedTheme = (() => {
+    try { return localStorage.getItem('personalSiteTheme'); }
+    catch (e) { return null; }
+  })();
+
+  if (savedTheme && ['sage', 'chiffon', 'lavender', 'mistblue'].includes(savedTheme)) {
+    setTheme(savedTheme);
+  } else {
+    setTheme('sage');
+  }
+
+  /* ============================================================
+     2. SCROLL SPY — highlight sidebar link for visible section
+     ============================================================ */
+  const sections = document.querySelectorAll('.section');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  function updateActiveSection() {
+    const scrollPosition = window.scrollY + window.innerHeight * 0.25;
+
+    let activeIndex = 0;
+    sections.forEach((section, index) => {
+      if (scrollPosition >= section.offsetTop) {
+        activeIndex = index;
+      }
+    });
+
+    navLinks.forEach((link, index) => {
+      link.classList.toggle('active', index === activeIndex);
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveSection, { passive: true });
+  window.addEventListener('resize', updateActiveSection);
+  updateActiveSection();
+
+  /* ============================================================
+     3. SMOOTH SCROLL for nav links
+     ============================================================ */
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const targetId = link.getAttribute('href');
+      if (!targetId || !targetId.startsWith('#')) return;
+      const target = document.querySelector(targetId);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  /* ============================================================
+     4. SCROLL-REVEAL ANIMATIONS for cards
+     ============================================================ */
+  const revealTargets = document.querySelectorAll('.research-card, .project-card');
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: '0px 0px -60px 0px'
+  });
+
+  revealTargets.forEach((el, i) => {
+    el.style.transitionDelay = `${Math.min(i * 0.06, 0.3)}s`;
+    revealObserver.observe(el);
+  });
+
+  /* ============================================================
+     5. PUBLICATIONS 
+     ============================================================ */
+  const publicationsData = [
+    {
+      title: 'Leverage-FLARE: Coherence-Aware Sampling for Epistemic Uncertainty in Diffusion Models',
+      authors: 'Hu, S. & Erichson, N.B.',
+      venue: 'DOE SULI Technical Report, LBNL',
+      year: 2026
+    },
+    {
+      title: 'Deep Learning Correction and Automated Visualization of NOAA-20 ATMS and MiRS Satellite Data',
+      authors: 'Hu, S.,
+      venue: 'MiRS Technical Report, NOAA',
+      year: 2022
+    }
+  ];
+
+  const publicationList = document.getElementById('publicationList');
+
+  if (publicationList) {
+    publicationsData.forEach(pub => {
+      const item = document.createElement('div');
+      item.className = 'publication-item';
+
+      const statusHtml = pub.status
+        ? `<span class="pub-status">${pub.status}</span>`
+        : '';
+
+      item.innerHTML = `
+        <div class="pub-icon"><i class="fas fa-file-alt"></i></div>
+        <div class="pub-content">
+          <h4>${pub.title}</h4>
+          <p>${pub.authors} · <em>${pub.venue}</em></p>
+          ${statusHtml}
+        </div>
+      `;
+      publicationList.appendChild(item);
+    });
+  }
+
+  const projectsData = [
+    {
+      title: '🧠 Leverage-FLARE',
+      description: 'Interactive dashboard for interpreting diffusion model decisions using local surrogate models and attribution heatmaps over the reverse trajectory.',
+      tags: ['Python', 'React', 'D3.js']
+    },
+    {
+      title: '⚡ Leverage-Sampling Sampler',
+      description: 'PyTorch library implementing leverage-score-guided timestep selection for DDPM and flow matching samplers. Reduces NFE by up to 40% at matched FID.',
+      tags: ['PyTorch', 'Diffusers', 'CUDA']
+    },
+    {
+      title: '🌿 Eco-Sense Kit',
+      description: 'Low-power sensor network with on-device anomaly detection for soil and air quality, running quantized models on 8-bit microcontrollers.',
+      tags: ['C++', 'TinyML', 'IoT']
+    },
+    {
+      title: '📚 Paper-Arc',
+      description: 'Visualization tool that maps citation networks and research trends for systematic literature reviews.',
+      tags: ['GraphQL', 'Neo4j', 'D3.js']
+    },
+    {
+      title: '🎨 Generative Art Studio',
+      description: 'Creative coding experiments with procedural generation, flow-based animation, and interactive installations.',
+      tags: ['p5.js', 'WebGL', 'Flow']
+    },
+    {
+      title: '🔬 UQ Bench',
+      description: 'Benchmark suite for uncertainty quantification in diffusion and flow matching models, with calibration and conformal prediction baselines.',
+      tags: ['Python', 'PyTorch', 'Conformal']
+    }
+  ];
+
+  const projectsGrid = document.getElementById('projectsGrid');
+
+  if (projectsGrid) {
+    projectsData.forEach(proj => {
+      const card = document.createElement('div');
+      card.className = 'project-card';
+
+      const tagsHtml = proj.tags
+        .map(t => `<span class="tag">${t}</span>`)
+        .join('');
+
+      card.innerHTML = `
+        <h3>${proj.title}</h3>
+        <p>${proj.description}</p>
+        <div>${tagsHtml}</div>
+      `;
+      projectsGrid.appendChild(card);
+    });
+
+    // Re-observe newly added project cards
+    projectsGrid.querySelectorAll('.project-card').forEach((el, i) => {
+      el.style.transitionDelay = `${Math.min(i * 0.06, 0.3)}s`;
+      revealObserver.observe(el);
+    });
+  }
+
+  /* ============================================================
+     7. TRAVEL GALLERY + LIGHTBOX
+     ============================================================ */
+  const travelImages = [
+    { src: 'images/travel1.jpg', caption: 'Misty mountains · Nepal' },
+    { src: 'images/travel2.jpg', caption: 'Sunset beach · Thailand' },
+    { src: 'images/travel3.jpg', caption: 'Old town · Prague' },
+    { src: 'images/travel4.jpg', caption: 'Redwood forest · California' },
+    { src: 'images/travel5.jpg', caption: 'Historic arch · Rome' },
+    { src: 'images/travel6.jpg', caption: 'Glacier lake · Iceland' }
+  ];
+
+  const galleryGrid = document.getElementById('galleryGrid');
+  const lightboxOverlay = document.getElementById('lightboxOverlay');
+  const lightboxImage = document.getElementById('lightboxImage');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+  const closeBtn = document.getElementById('closeLightbox');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const imageCounter = document.getElementById('imageCounter');
+
+  let currentIndex = 0;
+
+  // Build gallery
+  if (galleryGrid) {
+    travelImages.forEach((img, index) => {
+      const item = document.createElement('div');
+      item.className = 'gallery-item';
+      item.setAttribute('role', 'button');
+      item.setAttribute('tabindex', '0');
+      item.setAttribute('aria-label', `View ${img.caption}`);
+
+      const imgEl = document.createElement('img');
+      imgEl.src = img.src;
+      imgEl.alt = img.caption;
+      imgEl.loading = 'lazy';
+      imgEl.onerror = function () {
+        // Graceful fallback to placeholder if image missing
+        this.src = `https://via.placeholder.com/600x600?text=${encodeURIComponent(img.caption)}`;
+      };
+
+      const captionEl = document.createElement('div');
+      captionEl.className = 'gallery-caption';
+      captionEl.textContent = img.caption;
+
+      item.appendChild(imgEl);
+      item.appendChild(captionEl);
+
+      item.addEventListener('click', () => openLightbox(index));
+      item.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openLightbox(index);
+        }
+      });
+
+      galleryGrid.appendChild(item);
+    });
+  }
+
+  function openLightbox(index) {
+    currentIndex = index;
+    updateLightbox();
+    lightboxOverlay.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function updateLightbox() {
+    const img = travelImages[currentIndex];
+    if (!img) return;
+
+    const imgEl = lightboxImage.querySelector('img');
+    if (imgEl) {
+      imgEl.src = img.src;
+      imgEl.alt = img.caption;
+      imgEl.onerror = function () {
+        this.src = `https://via.placeholder.com/800x600?text=${encodeURIComponent(img.caption)}`;
+      };
+    }
+    if (lightboxCaption) lightboxCaption.textContent = img.caption;
+    if (imageCounter) imageCounter.textContent = `${currentIndex + 1} / ${travelImages.length}`;
+  }
+
+  function closeLightbox() {
+    lightboxOverlay.classList.remove('show');
+    document.body.style.overflow = '';
+  }
+
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % travelImages.length;
+    updateLightbox();
+  }
+
+  function prevImage() {
+    currentIndex = (currentIndex - 1 + travelImages.length) % travelImages.length;
+    updateLightbox();
+  }
+
+  if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+  if (nextBtn) nextBtn.addEventListener('click', nextImage);
+  if (prevBtn) prevBtn.addEventListener('click', prevImage);
+
+  if (lightboxOverlay) {
+    lightboxOverlay.addEventListener('click', (e) => {
+      if (e.target === lightboxOverlay) closeLightbox();
+    });
+  }
+
+  // Keyboard navigation for lightbox
+  document.addEventListener('keydown', (e) => {
+    if (!lightboxOverlay || !lightboxOverlay.classList.contains('show')) return;
+
+    switch (e.key) {
+      case 'Escape':
+        closeLightbox();
+        break;
+      case 'ArrowRight':
+        nextImage();
+        break;
+      case 'ArrowLeft':
+        prevImage();
+        break;
     }
   });
-});
 
-/* ── Active nav link on scroll ── */
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('#nav a');
+  const footer = document.querySelector('.footer-note p');
+  if (footer) {
+    footer.innerHTML = footer.innerHTML.replace(/©\s*\d{4}/, `© ${new Date().getFullYear()}`);
+  }
 
-function updateActiveNav() {
-  let current = '';
-  sections.forEach(sec => {
-    if (window.scrollY + 160 >= sec.offsetTop) current = sec.id;
-  });
-  navLinks.forEach(a => {
-    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
-  });
-}
-window.addEventListener('scroll', updateActiveNav, { passive: true });
-updateActiveNav();
-
-/* ── Scroll fade-in ── */
-const fadeEls = document.querySelectorAll('.fade-up');
-const fadeObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      fadeObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-fadeEls.forEach(el => fadeObserver.observe(el));
+})();
