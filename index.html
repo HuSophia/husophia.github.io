@@ -1,309 +1,227 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="sage">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="S.H. " />
-  <meta name="robots" content="noindex, nofollow" />
-  <title>S.H.</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="css/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sophia H · Research Associate · Generative Models & UQ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-<div class="shell">
-
-  <aside>
-    <div class="sidebar-top">
-      <div class="logo">
-        S.H.
-        <span></span>
+  <!-- Sidebar Navigation -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="mini-avatar">
+        <img src="images/profile.jpg" alt="Sophia H" onerror="this.src='https://via.placeholder.com/50x50'">
       </div>
-
-      <nav id="nav">
-        <a href="#experience">Experience</a>
-        <a href="#teaching">Teaching</a>
-        <a href="#research">Research</a>
-        <a href="#projects">Software</a>
-        <a href="#blog">Blog</a>
-      </nav>
+      <h3>Sophia H</h3>
     </div>
+    
+    <ul class="nav-links">
+      <li><a href="#home" class="nav-link active" data-section="home"><i class="fas fa-home"></i> <span>Home</span></a></li>
+      <li><a href="#research" class="nav-link" data-section="research"><i class="fas fa-flask"></i> <span>Research</span></a></li>
+      <li><a href="#projects" class="nav-link" data-section="projects"><i class="fas fa-code-branch"></i> <span>Projects</span></a></li>
+      <li><a href="#gallery" class="nav-link" data-section="gallery"><i class="fas fa-camera"></i> <span>Gallery</span></a></li>
+    </ul>
 
-    <div class="theme-container">
-      <span class="toggle-label">Theme</span>
-
-      <div class="flower-palette">
-        <div class="flower-center"></div>
-        <label class="petal sage" aria-label="Sage theme">
-          <input type="radio" name="theme" value="sage" checked>
-        </label>
-        <label class="petal lavender" aria-label="Lavender theme">
-          <input type="radio" name="theme" value="lavender">
-        </label>
-        <label class="petal mist-blue" aria-label="Mist Blue theme">
-          <input type="radio" name="theme" value="mist-blue">
-        </label>
-        <label class="petal chiffon" aria-label="Chiffon theme">
-          <input type="radio" name="theme" value="chiffon">
-        </label>
-      </div>
-
-      <div class="theme-icons" id="theme-name">
-        <span>Sage</span>
-      </div>
+    <div class="theme-toggle" id="themeToggleGroup">
+      <button class="theme-btn btn-sage active" data-theme="sage" title="sage"><i class="fas fa-leaf"></i></button>
+      <button class="theme-btn btn-chiffon" data-theme="chiffon" title="chiffon"><i class="fas fa-sun"></i></button>
+      <button class="theme-btn btn-lavender" data-theme="lavender" title="lavender"><i class="fas fa-flower"></i></button>
+      <button class="theme-btn btn-mistblue" data-theme="mistblue" title="mist blue"><i class="fas fa-cloud"></i></button>
     </div>
-  </aside>
+  </nav>
 
-  <main>
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Home Section -->
+    <section id="home" class="section">
+      <div class="container">
+        <div class="header">
+          <div class="profile-wrap">
+            <div class="avatar">
+              <img src="images/profile.jpg" alt="Sophia H" onerror="this.src='https://via.placeholder.com/180x180'">
+            </div>
+            <div class="intro">
+              <h1>Sophia H</h1>
+              <div class="tagline">Research Associate · Generative Models · UQ</div>
+              <p class="bio">
+                Research Associate with a B.S. in Mathematics-Statistics, working at the intersection of 
+                <strong> generative modeling</strong>, <strong>optimal transport</strong>, and 
+                <strong>uncertainty quantification</strong>. My current work develops 
+                <em>leverage score sampling</em> for accelerated inference in diffusion and flow matching 
+                models, with a focus on calibrated, distribution-free uncertainty estimates for scientific applications.
+              </p>
+              
+              <!-- Google Scholar button -->
+              <a href="https://scholar.google.com/citations?user=YOUR_SCHOLAR_ID" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="scholar-btn">
+                <i class="fas fa-graduation-cap"></i> Google Scholar
+              </a>
 
-    <div class="hero fade-up">
-      <h1>Probabilistic models,<br /><em>uncertainty &amp; learning</em></h1>
-      <p>I am a Statistics &amp; Mathematics graduate interested in probabilistic and generative modeling for uncertainty-aware learning in high-dimensional regimes, with a focus on scalable optimization and the development of reliable world models for physically grounded AI systems. </p>
-      <p class="hero-links">
-        <br/>
-        <span class="mono">
-          <a href="/cdn-cgi/l/email-protection#49212c252526092c31282439252c672a2624"><span class="__cf_email__" data-cfemail="f199949d9d9eb19489909c819d94df929e9c">[email&#160;protected]</span></a>
-          &nbsp;·&nbsp;
-          <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
-          &nbsp;·&nbsp;
-          <a href="cv.pdf" target="_blank">CV ↓</a>
-        </span>
-      </p>
-    </div>
-
-    <section id="experience">
-      <p class="sec-label">Experience</p>
-      <div class="exp-list">
-
-        <div class="exp-item fade-up">
-          <div class="exp-date">2021 — 2022</div>
-          <div class="exp-body">
-            <h3>Undergraduate Research Assistant</h3>
-            <div class="co">Federal Atmospheric &amp; Oceanic Agency</div>
-            <p>Built a deep neural network to characterize and correct satellite sea surface temperature retrieval residuals from microwave sensor data, reducing standard deviation error by over 40%. Developed a visualization tool for storm lifecycle analysis and automated large satellite dataset processing pipelines.</p>
+              <!-- Status badge -->
+              <div class="status-tag">
+                <span class="status-dot"></span> Applying to PhD programs 
+              </div>
+            </div>
           </div>
         </div>
-
-        <div class="exp-item fade-up">
-          <div class="exp-date">2020 — 2021</div>
-          <div class="exp-body">
-            <h3>Statistical Programmer</h3>
-            <div class="co">Life Sciences Research Firm · Biostatistics Department</div>
-            <p>Developed and debugged programs to generate compliant datasets from clinical databases. Created macros for data cleaning, reporting, and generating analysis datasets, tables, and figures for clinical studies.</p>
-          </div>
-        </div>
-
-        <div class="exp-item fade-up">
-          <div class="exp-date">Summer 2020</div>
-          <div class="exp-body">
-            <h3>Undergraduate Research Assistant</h3>
-            <div class="co">Earth &amp; Environmental Sciences Center</div>
-            <p>Automated extraction, remapping, and preprocessing of remote sensing satellite data using MATLAB and Bash to support large-scale environmental data analysis.</p>
-          </div>
-        </div>
-
       </div>
     </section>
 
-    <section id="teaching">
-      <p class="sec-label">Teaching</p>
-      <div class="exp-list">
-
-        <div class="exp-item fade-up">
-          <div class="exp-date">2024 — Present</div>
-          <div class="exp-body">
-            <h3>Course Assistant — Statistical Computing</h3>
-            <div class="co">Dept. of Mathematics, Research University</div>
-            <p>Evaluate student assignments and projects in Python, R, and SAS; provide feedback on code quality, statistical reasoning, and reproducibility.</p>
+    <!-- Research Section -->
+    <section id="research" class="section">
+      <div class="container">
+        <div class="section-title"><i class="fas fa-flask"></i> Research</div>
+        
+        <div class="research-theme-banner">
+          <div class="theme-icon">
+            <i class="fas fa-diagram-project"></i>
+          </div>
+          <div class="theme-text">
+            <h2>Sampling, Transport & Uncertainty in Generative Models</h2>
+            <p>Efficient inference for diffusion and flow matching via leverage score sampling and calibrated UQ</p>
           </div>
         </div>
 
-        <div class="exp-item fade-up">
-          <div class="exp-date">2022 — 2025</div>
-          <div class="exp-body">
-            <h3>Teaching Assistant — Computational Methods</h3>
-            <div class="co">Dept. of Mathematics, Research University</div>
-            <p>Supported nine sections over three years. Provided solutions and feedback on MATLAB assignments covering numerical methods, linear systems, and approximation theory.</p>
+        <div class="research-card featured">
+          <div class="research-card-header">
+            <span class="research-badge" data-type="core">Core Focus</span>
+            <h3>Leverage Score Sampling for Accelerated Diffusion Inference</h3>
+          </div>
+          <p>Developing <strong>importance sampling strategies</strong> based on statistical leverage scores to reduce the number of discretization steps required during reverse diffusion. My work formalizes the connection between leverage scores of the score network Jacobian and per-timestep contribution to the evidence lower bound, enabling adaptive step selection that preserves sample fidelity under fixed compute budgets.</p>
+          <div class="research-tags">
+            <span class="tag">#LeverageScores</span>
+            <span class="tag">#ImportanceSampling</span>
+            <span class="tag">#DiffusionModels</span>
+            <span class="tag">#ScoreMatching</span>
+            <span class="tag">#ELBO</span>
           </div>
         </div>
 
-        <div class="exp-item fade-up">
-          <div class="exp-date">2024 — Present</div>
-          <div class="exp-body">
-            <h3>Academic Tutor — Statistics &amp; Computer Science</h3>
-            <div class="co">Independent</div>
-            <p>Supported undergraduate students across probability, statistical modeling, data analysis, and programming fundamentals, with an emphasis on sound reasoning and reproducible code.</p>
+        <div class="research-card featured-new">
+          <div class="research-card-header">
+            <span class="research-badge" data-type="new">New Direction</span>
+            <h3>Flow Matching & Continuous Normalizing Flows</h3>
+          </div>
+          <p>Investigating <strong>conditional flow matching</strong> and <strong>rectified flow</strong> as an alternative to stochastic diffusion, leveraging the deterministic ODE formulation for cheaper likelihood evaluation. I am particularly interested in how leverage-score-guided sampling extends from SDEs to the flow matching objective, and how optimal transport couplings influence sample complexity in the low-NFE regime.</p>
+          <div class="research-tags">
+            <span class="tag">#FlowMatching</span>
+            <span class="tag">#CNF</span>
+            <span class="tag">#RectifiedFlow</span>
+            <span class="tag">#OptimalTransport</span>
+            <span class="tag">#NFE</span>
           </div>
         </div>
 
+        <div class="flow-matching-diagram">
+          <div class="flow-visualization">
+            <div class="flow-node start">
+              <i class="fas fa-circle"></i>
+              <span>Source<br>π₀</span>
+            </div>
+            <div class="flow-path">
+              <div class="flow-arrow"></div>
+              <span class="flow-label">v_θ(x, t) · Flow Matching</span>
+            </div>
+            <div class="flow-node end">
+              <i class="fas fa-circle"></i>
+              <span>Target<br>π₁</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="research-card">
+          <div class="research-card-header">
+            <span class="research-badge" data-type="theory">Theory</span>
+            <h3>Sampling Theory for Score-Based Generative Models</h3>
+          </div>
+          <p>Analyzing <strong>convergence rates</strong> and <strong>sample complexity</strong> of discretized reverse-time SDEs and probability-flow ODEs. Current directions include variance-reduced estimators for the score function, and the role of leverage scores in bounding discretization error under non-uniform step schedules.</p>
+          <div class="research-tags">
+            <span class="tag">#SDE</span>
+            <span class="tag">#PF-ODE</span>
+            <span class="tag">#ConvergenceRates</span>
+            <span class="tag">#SampleComplexity</span>
+          </div>
+        </div>
+
+        <div class="research-card">
+          <div class="research-card-header">
+            <span class="research-badge" data-type="uq">UQ</span>
+            <h3>Calibrated Uncertainty Quantification for Generative Models</h3>
+          </div>
+          <p>Building <strong>distribution-free</strong>, <strong>calibrated</strong> uncertainty estimates for samples produced by diffusion and flow matching models. Combining <strong>conformal prediction</strong> with Bayesian treatments of the score network to yield valid prediction sets and confidence intervals over generated outputs — a prerequisite for deployment in scientific and clinical pipelines.</p>
+          <div class="research-tags">
+            <span class="tag">#ConformalPrediction</span>
+            <span class="tag">#BayesianDL</span>
+            <span class="tag">#Calibration</span>
+            <span class="tag">#ReliableAI</span>
+          </div>
+        </div>
+
+        <div class="research-card">
+          <div class="research-card-header">
+            <span class="research-badge" data-type="apps">Applications</span>
+            <h3>Scientific Applications of Efficient Generative Models</h3>
+          </div>
+          <p>Applying efficient diffusion and flow matching samplers to <strong>molecular generation</strong>, <strong>protein backbone design</strong>, and <strong>climate downscaling</strong>. Leverage-score-guided inference reduces wall-clock cost for high-dimensional scientific sampling without sacrificing physical validity.</p>
+          <div class="research-tags">
+            <span class="tag">#AI4Science</span>
+            <span class="tag">#MolecularGeneration</span>
+            <span class="tag">#ProteinDesign</span>
+            <span class="tag">#ClimateModeling</span>
+          </div>
+        </div>
+
+        <div class="research-highlights">
+          <h3 class="highlights-title">Selected Publications & Preprints</h3>
+          <div class="publication-list" id="publicationList"></div>
+        </div>
       </div>
     </section>
 
-    <section id="research">
-      <p class="sec-label">Research</p>
-      <div class="card-grid">
-
-        <div class="research-card fade-up">
-          <div class="card-meta">Autonomous Systems Lab · 2024</div>
-          <h3>Safe Autonomous Driving in Mixed-Traffic Environments</h3>
-          <p>Used a VR simulator to collect human driving data across diverse pre-crash scenarios. Designed environments replicating adverse conditions; analyzed correlations between driving behavior and safety-critical actions. Presented to a large technical audience at a university hackathon (competitively selected).</p>
-          <div class="tags"><span class="tag">VR</span><span class="tag">Autonomous Driving</span><span class="tag">Behavioral Data</span></div>
-          <div class="arxiv-row">
-            <a class="arxiv-link"
-               href=""
-               target="_blank" rel="noopener"> Link↗</a>
-            <span class="arxiv-id">Autonomous Systems Lab</span>
-          </div>
-        </div>
-
-        <div class="research-card fade-up">
-          <div class="card-meta">Federal Research Agency · 2021–2022</div>
-          <h3>Neural Network Correction of Satellite SST Retrievals</h3>
-          <p>Developed a deep neural network to characterize and correct sea surface temperature retrieval residuals from microwave satellite data, reducing error by over 40%. Also built storm lifecycle visualization tools from historical track databases.</p>
-          <div class="tags"><span class="tag">Deep Learning</span><span class="tag">Remote Sensing</span><span class="tag">Atmospheric Science</span></div>
-          <div class="arxiv-row">
-            <a class="arxiv-link"
-               href="https://arxiv.org/search/?query=SST+retrieval+neural+network+microwave&searchtype=all"
-               target="_blank" rel="noopener">Search arXiv ↗</a>
-            <span class="arxiv-id">Federal Atmospheric Agency</span>
-          </div>
-        </div>
-
-        <div class="research-card fade-up">
-          <div class="card-meta">National Space Agency · 2022</div>
-          <h3>Microgravity Experiment Design</h3>
-          <p>Contributed to a spaceflight research proposal on microgravity phenomena as part of a nationally affiliated university spaceflight program. The proposal was selected as a program finalist.</p>
-          <div class="tags"><span class="tag">Microgravity</span><span class="tag">Spaceflight</span><span class="tag">Experimental Design</span></div>
-          <div class="arxiv-row">
-            <a class="arxiv-link"
-               href="https://arxiv.org/search/?query=microgravity+spaceflight+experiment&searchtype=all"
-               target="_blank" rel="noopener">Search arXiv ↗</a>
-            <span class="arxiv-id">University Spaceflight Program</span>
-          </div>
-        </div>
-
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-title"><i class="fas fa-code-branch"></i> Projects</div>
+        <div class="projects-grid" id="projectsGrid"></div>
       </div>
     </section>
 
-    <section id="projects">
-      <p class="sec-label">Software — <em>click a card to flip</em></p>
-      <div class="project-grid">
-
-        <div class="flip-card fade-up" onclick="toggleFlip(this)">
-          <div class="flip-inner">
-            <div class="flip-front">
-             
-              <img src="images/tcmirs.png"
-                   alt="tcmirs project"
-                   onerror="this.parentElement.classList.add('no-img');this.remove()" />
-              <div class="flip-front-overlay">
-                <h3>tcmirs</h3>
-                <div class="flip-hint">Click to read more →</div>
-              </div>
-            </div>
-            <div class="flip-back">
-              <div class="card-meta">Python · NOAA R&amp;D Internship</div>
-              <h3>tcmirs</h3>
-             <p>Automates construction of analysis-ready datasets by merging hurricane track data with satellite retrievals. Enables downstream modeling of spatiotemporal physical systems by aligning heterogeneous, high-dimensional observations into a unified representation for statistical and machine learning workflows.</p>
-              <div class="flip-back-footer">
-                <a class="gh-link" href="https://github.com/yourusername/tcmirs"
-                   target="_blank" rel="noopener" onclick="event.stopPropagation()">View on GitHub ↗</a>
-                <button class="flip-close"
-                        onclick="event.stopPropagation();toggleFlip(this.closest('.flip-card'))">← Flip back</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="flip-card fade-up" onclick="toggleFlip(this)">
-          <div class="flip-inner">
-            <div class="flip-front">
-            
-              <img src="images/tcviz.png"
-                   alt="tc-viz project"
-                   onerror="this.parentElement.classList.add('no-img');this.remove()" />
-              <div class="flip-front-overlay">
-                <h3>tc-viz</h3>
-                <div class="flip-hint">Click to read more →</div>
-              </div>
-            </div>
-            <div class="flip-back">
-              <div class="card-meta">Python · NOAA R&amp;D Internship</div>
-              <h3>tc-viz</h3>
-              <p>Visualization tool for tropical cyclone lifecycles using IBTrACS data. Generates maps of storm track and wind radii across four quadrants, alongside wind intensity and pressure timeseries. Used by NOAA scientists for storm severity analysis and reporting.</p>
-              <div class="tags"><span class="tag">Visualization</span><span class="tag">IBTrACS</span><span class="tag">Tropical Cyclones</span></div>
-              <div class="flip-back-footer">
-                <a class="gh-link" href="https://github.com/yourusername/tc-viz"
-                   target="_blank" rel="noopener" onclick="event.stopPropagation()">View on GitHub ↗</a>
-                <button class="flip-close"
-                        onclick="event.stopPropagation();toggleFlip(this.closest('.flip-card'))">← Flip back</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="flip-card fade-up" onclick="toggleFlip(this)">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <img src="images/3dhydro.png"
-                   alt="mirs-hydro-3d project"
-                   onerror="this.parentElement.classList.add('no-img');this.remove()" />
-              <div class="flip-front-overlay">
-                <h3>mirs-hydro-3d</h3>
-                <div class="flip-hint">Click to read more →</div>
-              </div>
-            </div>
-            <div class="flip-back">
-              <div class="card-meta">Python · ParaView · NOAA R&amp;D Internship</div>
-              <h3>mirs-hydro-3d</h3>
-              <p>Constructs 3D volumetric representations of hydrometeor fields within tropical cyclones from satellite data. Enables exploration of complex physical structures and supports future development of data-driven world models for atmospheric systems.</p>
-              <div class="tags"><span class="tag">3D Viz</span><span class="tag">MIRS</span><span class="tag">ParaView</span><span class="tag">netCDF</span></div>
-              <div class="flip-back-footer">
-                <a class="gh-link" href="https://github.com/yourusername/mirs-hydro-3d"
-                   target="_blank" rel="noopener" onclick="event.stopPropagation()">View on GitHub ↗</a>
-                <button class="flip-close"
-                        onclick="event.stopPropagation();toggleFlip(this.closest('.flip-card'))">← Flip back</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
+    <!-- Travel Gallery Section -->
+    <section id="gallery" class="section">
+      <div class="container">
+        <div class="section-title"><i class="fas fa-camera"></i> Travel Gallery</div>
+        <div class="gallery-grid" id="galleryGrid"></div>
       </div>
     </section>
 
-    <section id="blog">
-      <p class="sec-label">Blog</p>
-      <div class="blog-list">
-
-        <div class="blog-item fade-up" onclick="openPost('diffusion')">
-          <span class="blog-title"></span>
-          <span class="blog-date">Apr 2025</span>
-        </div>
-
-      </div>
-    </section>
-
+    <footer class="footer-note">
+      <p>© 2024 Sophia H · Diffusion · Flow Matching · Leverage Scores · Uncertainty Quantification</p>
+    </footer>
   </main>
-</div>
 
-<div id="blog-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-  <div class="modal-backdrop" onclick="closePost()"></div>
-  <div class="modal-panel">
-    <div class="modal-close">
-      <button onclick="closePost()" aria-label="Close post">✕ Close</button>
+  <!-- Lightbox Overlay -->
+  <div class="lightbox-overlay" id="lightboxOverlay">
+    <div class="lightbox-content">
+      <button class="close-btn" id="closeLightbox"><i class="fas fa-times"></i></button>
+      <div class="lightbox-image" id="lightboxImage">
+        <img src="" alt="Travel photo">
+      </div>
+      <div class="lightbox-caption" id="lightboxCaption">beautiful place</div>
+      <div class="lightbox-nav">
+        <button class="nav-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+        <span class="image-counter" id="imageCounter">1 / 6</span>
+        <button class="nav-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+      </div>
     </div>
-    <div class="modal-meta" id="modal-date"></div>
-    <h2 class="modal-title" id="modal-title"></h2>
-    <hr class="modal-divider" />
-    <div class="modal-body" id="modal-body"></div>
   </div>
-</div>
 
-<script src="js/posts.js"></script>
-<script src="js/main.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
