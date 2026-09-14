@@ -15,6 +15,7 @@
     try {
       localStorage.setItem('personalSiteTheme', themeName);
     } catch (e) {
+      /* localStorage unavailable — ignore */
     }
   }
 
@@ -22,7 +23,6 @@
     btn.addEventListener('click', () => setTheme(btn.dataset.theme));
   });
 
-  // Load saved theme, fallback to sage
   const savedTheme = (() => {
     try { return localStorage.getItem('personalSiteTheme'); }
     catch (e) { return null; }
@@ -42,8 +42,8 @@
 
   function updateActiveSection() {
     const scrollPosition = window.scrollY + window.innerHeight * 0.25;
-
     let activeIndex = 0;
+
     sections.forEach((section, index) => {
       if (scrollPosition >= section.offsetTop) {
         activeIndex = index;
@@ -75,41 +75,21 @@
   });
 
   /* ============================================================
-     4. SCROLL-REVEAL ANIMATIONS for cards
-     ============================================================ */
-  const revealTargets = document.querySelectorAll('.research-card, .project-card');
-
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.12,
-    rootMargin: '0px 0px -60px 0px'
-  });
-
-  revealTargets.forEach((el, i) => {
-    el.style.transitionDelay = `${Math.min(i * 0.06, 0.3)}s`;
-    revealObserver.observe(el);
-  });
-
-  /* ============================================================
-     5. PUBLICATIONS 
+     4. PUBLICATIONS
      ============================================================ */
   const publicationsData = [
     {
       title: 'Leverage-FLARE: Coherence-Aware Sampling for Epistemic Uncertainty in Diffusion Models',
-      authors: 'Hu, S. & Erichson, N.B.',
+      authors: 'Hu, S. & Erichson, N. B.',
       venue: 'DOE SULI Technical Report, LBNL',
+      status: 'Technical Report',
       year: 2026
     },
     {
       title: 'Deep Learning Correction and Automated Visualization of NOAA-20 ATMS and MiRS Satellite Data',
-      authors: 'Hu, S.,
+      authors: 'Hu, S.',
       venue: 'MiRS Technical Report, NOAA',
+      status: 'Technical Report',
       year: 2022
     }
   ];
@@ -137,6 +117,9 @@
     });
   }
 
+  /* ============================================================
+     5. PROJECTS
+     ============================================================ */
   const projectsData = [
     {
       title: '🧠 Leverage-FLARE',
@@ -188,16 +171,10 @@
       `;
       projectsGrid.appendChild(card);
     });
-
-    // Re-observe newly added project cards
-    projectsGrid.querySelectorAll('.project-card').forEach((el, i) => {
-      el.style.transitionDelay = `${Math.min(i * 0.06, 0.3)}s`;
-      revealObserver.observe(el);
-    });
   }
 
   /* ============================================================
-     7. TRAVEL GALLERY + LIGHTBOX
+     6. TRAVEL GALLERY + LIGHTBOX
      ============================================================ */
   const travelImages = [
     { src: 'images/travel1.jpg', caption: 'Misty mountains · Nepal' },
@@ -233,7 +210,6 @@
       imgEl.alt = img.caption;
       imgEl.loading = 'lazy';
       imgEl.onerror = function () {
-        // Graceful fallback to placeholder if image missing
         this.src = `https://via.placeholder.com/600x600?text=${encodeURIComponent(img.caption)}`;
       };
 
@@ -259,7 +235,7 @@
   function openLightbox(index) {
     currentIndex = index;
     updateLightbox();
-    lightboxOverlay.classList.add('show');
+    if (lightboxOverlay) lightboxOverlay.classList.add('show');
     document.body.style.overflow = 'hidden';
   }
 
@@ -267,7 +243,7 @@
     const img = travelImages[currentIndex];
     if (!img) return;
 
-    const imgEl = lightboxImage.querySelector('img');
+    const imgEl = lightboxImage ? lightboxImage.querySelector('img') : null;
     if (imgEl) {
       imgEl.src = img.src;
       imgEl.alt = img.caption;
@@ -280,7 +256,7 @@
   }
 
   function closeLightbox() {
-    lightboxOverlay.classList.remove('show');
+    if (lightboxOverlay) lightboxOverlay.classList.remove('show');
     document.body.style.overflow = '';
   }
 
@@ -321,6 +297,9 @@
     }
   });
 
+  /* ============================================================
+     7. FOOTER YEAR
+     ============================================================ */
   const footer = document.querySelector('.footer-note p');
   if (footer) {
     footer.innerHTML = footer.innerHTML.replace(/©\s*\d{4}/, `© ${new Date().getFullYear()}`);
