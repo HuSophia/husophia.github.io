@@ -118,38 +118,38 @@
   }
 
   /* ============================================================
-     5. PROJECTS
+     5. PROJECTS — NOAA internship + current research
      ============================================================ */
   const projectsData = [
     {
       title: '🧠 Leverage-FLARE',
-      description: 'Interactive dashboard for interpreting diffusion model decisions using local surrogate models and attribution heatmaps over the reverse trajectory.',
-      tags: ['Python', 'React', 'D3.js']
+      description: 'Coherence-aware sampling framework for epistemic uncertainty in diffusion models. Combines leverage-score-based timestep selection with conformal prediction to produce calibrated, distribution-free uncertainty estimates over generated samples.',
+      tags: ['PyTorch', 'Diffusers', 'UQ']
     },
     {
-      title: '⚡ Leverage-Sampling Sampler',
-      description: 'PyTorch library implementing leverage-score-guided timestep selection for DDPM and flow matching samplers. Reduces NFE by up to 40% at matched FID.',
-      tags: ['PyTorch', 'Diffusers', 'CUDA']
+      title: '🌀 tcmirs',
+      description: 'Python package for automated merging of IBTrACS tropical cyclone tracks with MiRS satellite retrievals. Handles temporal and geospatial granule matching, longitude normalization, and produces analysis-ready netCDF files. Reduced manual data-prep to under 2 minutes for Hurricane Ida (2021).',
+      tags: ['Python', 'Xarray', 'Shapely', 'netCDF']
     },
     {
-      title: '🌿 Eco-Sense Kit',
-      description: 'Low-power sensor network with on-device anomaly detection for soil and air quality, running quantized models on 8-bit microcontrollers.',
-      tags: ['C++', 'TinyML', 'IoT']
+      title: '🗺️ tc-viz',
+      description: 'Comprehensive tropical cyclone lifecycle visualization tool, now used operationally by NOAA scientists. Renders storm tracks with Saffir-Simpson category coloring, four-quadrant wind radii (34/50/64 kt), and dynamic annotations for time, wind speed, and pressure.',
+      tags: ['Cartopy', 'Matplotlib', 'Geospatial']
     },
     {
-      title: '📚 Paper-Arc',
-      description: 'Visualization tool that maps citation networks and research trends for systematic literature reviews.',
-      tags: ['GraphQL', 'Neo4j', 'D3.js']
+      title: '🌊 sst-bias-dnn',
+      description: 'Deep neural network for correcting systematic SST retrieval biases in NOAA-20 ATMS brightness temperatures. Contributed to the codebase supporting a published method (Liu et al., IEEE JSTARS). Reduced SST retrieval error from 3.22 K to 2.15 K (~30% improvement).',
+      tags: ['TensorFlow', 'Keras', 'Remote Sensing']
     },
     {
-      title: '🎨 Generative Art Studio',
-      description: 'Creative coding experiments with procedural generation, flow-based animation, and interactive installations.',
-      tags: ['p5.js', 'WebGL', 'Flow']
+      title: '🌐 ParaView 3D Visualization',
+      description: 'ParaView-based workflow for interactive 3D visualization of atmospheric hydrometeors (graupel, rain) in tropical cyclones. Produces isosurfaces colored by temperature profile to reveal vertical precipitation structure.',
+      tags: ['ParaView', 'Python', '3D Viz']
     },
     {
-      title: '🔬 UQ Bench',
-      description: 'Benchmark suite for uncertainty quantification in diffusion and flow matching models, with calibration and conformal prediction baselines.',
-      tags: ['Python', 'PyTorch', 'Conformal']
+      title: '🔬 MiRS Algorithm Verification',
+      description: 'Statistical verification of independent MiRS processing streams (STAR vs. NCCF) across PTemp, TPW, Tskin, RR, and surface emissivity. Confirmed near-unity correlation and slope, validating algorithm consistency across pipelines.',
+      tags: ['SciPy', 'Statistics', 'Validation']
     }
   ];
 
