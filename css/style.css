@@ -454,10 +454,10 @@ body {
 }
 
 .research-badge[data-type="core"] { color: #00B3B3; }
-.research-badge[data-type="new"] { color: #800020; }
-.research-badge[data-type="theory"] { color: #DEDCFF; }
-.research-badge[data-type="uq"] { color: #FFC0CB; }
-.research-badge[data-type="apps"] { color: #8FB38F; }
+.research-badge[data-type="new"] { color: #B63838; }
+.research-badge[data-type="theory"] { color: #B39AC0; }
+.research-badge[data-type="uq"] { color: #FB8D9D; }
+.research-badge[data-type="apps"] { color: #B1D856; }
 
 .research-card h3 {
   color: var(--primary);
@@ -485,11 +485,11 @@ body {
 }
 
 .research-card.featured {
-  border-left: 3px solid #0ea5e9;
+  border-left: 3px solid #71B5CE;
 }
 
 .research-card.featured-new {
-  border-left: 3px solid #ef4444;
+  border-left: 3px solid #FFDAE0;
 }
 
 .research-tags {
@@ -515,7 +515,7 @@ body {
   border-color: var(--accent);
 }
 
-/* ============ Flow Diagram ============ */
+/* ============ Flow Matching — Math ============ */
 .flow-matching-diagram {
   background: var(--bg-soft);
   border-radius: 0.75rem;
@@ -526,6 +526,51 @@ body {
   transition: background 0.3s ease, border-color 0.3s ease;
 }
 
+.flow-formula {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.flow-formula-line {
+  display: flex;
+  align-items: baseline;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.flow-eq-label {
+  flex-shrink: 0;
+  min-width: 160px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-muted);
+}
+
+.flow-eq {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  color: var(--primary);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.9rem;
+  border-radius: 0.4rem;
+  line-height: 1.5;
+  letter-spacing: 0.2px;
+}
+
+.flow-eq sub {
+  font-size: 0.7em;
+  vertical-align: -0.25em;
+  color: var(--accent);
+}
+
+/* Visual arrow below the math */
 .flow-visualization {
   display: flex;
   align-items: center;
@@ -971,6 +1016,24 @@ body {
   .publication-item {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .flow-formula-line {
+    flex-direction: column;
+    gap: 0.4rem;
+    align-items: flex-start;
+  }
+
+  .flow-eq-label {
+    min-width: auto;
+  }
+
+  .flow-eq {
+    font-size: 0.85rem;
+    width: 100%;
+    overflow-x: auto;
   }
 }
 
