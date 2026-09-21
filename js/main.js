@@ -2,16 +2,16 @@
   'use strict';
 
   /* ============================================================
-     1. THEME TOGGLE
+     1. THEME TOGGLE — beige/brown (light) / sage/cream (dark)
      ============================================================ */
-  const themeButtons = document.querySelectorAll('.theme-btn');
-  const body = document.body;
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon = document.getElementById('themeIcon');
 
-  function setTheme(themeName) {
-    body.setAttribute('data-theme', themeName);
-    themeButtons.forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.theme === themeName);
-    });
+  function applyTheme(themeName) {
+    document.body.setAttribute('data-theme', themeName);
+    if (themeIcon) {
+      themeIcon.className = themeName === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    }
     try {
       localStorage.setItem('personalSiteTheme', themeName);
     } catch (e) {
@@ -19,20 +19,22 @@
     }
   }
 
-  themeButtons.forEach(btn => {
-    btn.addEventListener('click', () => setTheme(btn.dataset.theme));
-  });
+  function toggleTheme() {
+    const current = document.body.getAttribute('data-theme') || 'light';
+    const next = current === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+  }
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', toggleTheme);
+  }
 
   const savedTheme = (() => {
     try { return localStorage.getItem('personalSiteTheme'); }
     catch (e) { return null; }
   })();
 
-  if (savedTheme && ['sage', 'chiffon', 'lavender', 'mistblue'].includes(savedTheme)) {
-    setTheme(savedTheme);
-  } else {
-    setTheme('sage');
-  }
+  applyTheme(savedTheme === 'dark' ? 'dark' : 'light');
 
   /* ============================================================
      2. SCROLL SPY — highlight sidebar link for visible section
