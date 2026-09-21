@@ -15,9 +15,10 @@
   <nav class="sidebar" id="sidebar">
     <div class="sidebar-header">
       <div class="mini-avatar">
-        <img src="images/profile.jpg" alt="Sophia H" onerror="this.src='https://via.placeholder.com/50x50'">
+        <img src="images/profile.jpg" alt="Sophia H" onerror="this.src='https://via.placeholder.com/80x80'">
       </div>
       <h3>Sophia H</h3>
+      <div class="sidebar-subtitle">Research Associate</div>
     </div>
     
     <ul class="nav-links">
@@ -27,12 +28,10 @@
       <li><a href="#gallery" class="nav-link" data-section="gallery"><i class="fas fa-camera"></i> <span>Gallery</span></a></li>
     </ul>
 
-    <div class="theme-toggle" id="themeToggleGroup">
-      <button class="theme-btn btn-sage active" data-theme="sage" title="sage"><i class="fas fa-leaf"></i></button>
-      <button class="theme-btn btn-chiffon" data-theme="chiffon" title="chiffon"><i class="fas fa-sun"></i></button>
-      <button class="theme-btn btn-lavender" data-theme="lavender" title="lavender"><i class="fa-solid fa-flower"></i></button>
-      <button class="theme-btn btn-mistblue" data-theme="mistblue" title="mist blue"><i class="fas fa-cloud"></i></button>
-    </div>
+    <!-- Single theme toggle button -->
+    <button class="theme-toggle-btn" id="themeToggle" title="Toggle theme" aria-label="Toggle light and dark theme">
+      <i class="fas fa-moon" id="themeIcon"></i>
+    </button>
   </nav>
 
   <!-- Main Content -->
@@ -49,8 +48,8 @@
               <h1>Sophia H</h1>
               <div class="tagline">Research Associate · Generative Models · UQ</div>
               <p class="bio">
-                Research Associate with a B.S. in Mathematics-Statistics, working at the intersection of 
-                <strong> generative modeling</strong>, <strong>optimal transport</strong>, and 
+                Research Associate with a B.S. in Mathematics–Statistics, working at the intersection of 
+                <strong>generative modeling</strong>, <strong>optimal transport</strong>, and 
                 <strong>uncertainty quantification</strong>. My current work develops 
                 <em>leverage score sampling</em> for accelerated inference in diffusion and flow matching 
                 models, with a focus on calibrated, distribution-free uncertainty estimates for scientific applications.
