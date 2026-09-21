@@ -1,5 +1,11 @@
+/* ============================================================
+   Sophia H · Personal Website
+   Chirpy-inspired dual theme
+   Light: beige + brown   |   Dark: cream + light sage
+   ============================================================ */
+
+/* ============ Light theme (default) ============ */
 :root {
-  /* ===== Light — Beige / Brown ===== */
   --bg: #faf6ef;
   --bg-soft: #f4ede0;
   --surface: #ffffff;
@@ -19,13 +25,12 @@
   --hover-bg: rgba(139, 111, 71, 0.08);
   --link: #8b6f47;
   --link-hover: #6b5435;
-
   --sidebar-width: 260px;
   --mono: 'SF Mono', 'Monaco', 'Menlo', monospace;
 }
 
+/* ============ Dark theme ============ */
 [data-theme="dark"] {
-  /* ===== Dark — Cream + Light Sage ===== */
   --bg: #1a1d1a;
   --bg-soft: #232720;
   --surface: #232720;
@@ -89,7 +94,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  transition: all 0.3s ease;
+  transition: background 0.3s ease, border-color 0.3s ease;
   z-index: 100;
 }
 
@@ -98,7 +103,7 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 0.9rem;
+  gap: 0.75rem;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--border);
 }
@@ -201,6 +206,10 @@ body {
   border-color: var(--accent);
   color: var(--accent);
   transform: translateY(-1px);
+}
+
+.theme-toggle-btn i {
+  pointer-events: none;
 }
 
 /* ============ Main Content ============ */
@@ -380,6 +389,7 @@ body {
   display: flex;
   align-items: center;
   gap: 1.3rem;
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .theme-icon {
@@ -417,7 +427,7 @@ body {
   padding: 1.6rem 1.8rem;
   margin-bottom: 1.2rem;
   border: 1px solid var(--border);
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.3s ease;
 }
 
 .research-card:hover {
@@ -443,11 +453,11 @@ body {
   border: 1px solid var(--border);
 }
 
-.research-badge[data-type="core"] { color: #0ea5e9; }
-.research-badge[data-type="new"] { color: #ef4444; }
-.research-badge[data-type="theory"] { color: #8b5cf6; }
-.research-badge[data-type="uq"] { color: #f59e0b; }
-.research-badge[data-type="apps"] { color: #10b981; }
+.research-badge[data-type="core"] { color: #00B3B3; }
+.research-badge[data-type="new"] { color: #800020; }
+.research-badge[data-type="theory"] { color: #DEDCFF; }
+.research-badge[data-type="uq"] { color: #FFC0CB; }
+.research-badge[data-type="apps"] { color: #8FB38F; }
 
 .research-card h3 {
   color: var(--primary);
@@ -505,7 +515,7 @@ body {
   border-color: var(--accent);
 }
 
-/* ============ Flow Matching Diagram ============ */
+/* ============ Flow Diagram ============ */
 .flow-matching-diagram {
   background: var(--bg-soft);
   border-radius: 0.75rem;
@@ -513,6 +523,7 @@ body {
   margin: 1.5rem 0;
   border: 1px solid var(--border);
   overflow-x: auto;
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .flow-visualization {
@@ -852,11 +863,9 @@ body {
   .section {
     padding: 4rem 2rem;
   }
-
   .intro h1 {
     font-size: 2.2rem;
   }
-
   .avatar {
     width: 140px;
     height: 140px;
@@ -970,21 +979,17 @@ body {
     width: 120px;
     height: 120px;
   }
-
   .intro h1 {
     font-size: 1.7rem;
   }
-
   .section {
     padding: 2.5rem 1rem;
   }
-
   .gallery-grid {
     grid-template-columns: 1fr;
   }
 }
 
-/* ============ Accessibility ============ */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
