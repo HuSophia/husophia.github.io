@@ -184,7 +184,7 @@
     { src: 'images/travel3.jpg', caption: 'Old town · Prague' },
     { src: 'images/travel4.jpg', caption: 'Redwood forest · California' },
     { src: 'images/travel5.jpg', caption: 'SF Bay Views · Berkeley' },
-    { src: 'images/travel6.jpg', caption: 'Glacier lake · Iceland' }
+    { src: 'images/travel6.jpg', caption: 'Tidal Basin Cherry Blossoms · DC' }
   ];
 
   const galleryGrid = document.getElementById('galleryGrid');
