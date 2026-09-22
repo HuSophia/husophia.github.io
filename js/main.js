@@ -179,7 +179,7 @@
      6. TRAVEL GALLERY + LIGHTBOX
      ============================================================ */
   const travelImages = [
-    { src: 'images/travel3.jpg', caption: 'Basílica de la Sagrada Família· Spain' },
+    { src: 'images/travel3.jpg', caption: 'Basílica de la Sagrada Família · Spain' },
     { src: 'images/travel2.jpg', caption: 'Old town · Prague' },
     { src: 'images/travel1.jpg', caption: 'Cape Cod, MA' },
     { src: 'images/travel4.jpg', caption: 'Redwood forest · CA' },
