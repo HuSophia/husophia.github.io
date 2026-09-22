@@ -179,10 +179,10 @@
      6. TRAVEL GALLERY + LIGHTBOX
      ============================================================ */
   const travelImages = [
-    { src: 'images/travel1.jpg', caption: 'Cape Cod, Massachusetts' },
     { src: 'images/travel2.jpg', caption: 'Old town · Prague' },
+    { src: 'images/travel1.jpg', caption: 'Cape Cod, MA' },
     { src: 'images/travel3.jpg', caption: 'Mount Bonnell· Austin' },
-    { src: 'images/travel4.jpg', caption: 'Redwood forest · California' },
+    { src: 'images/travel4.jpg', caption: 'Redwood forest · CA' },
     { src: 'images/travel5.jpg', caption: 'SF Bay Views · Berkeley' },
     { src: 'images/travel6.jpg', caption: 'Tidal Basin · DC' },
     { src: 'images/travel7.jpg', caption: 'Great Falls · VA' },
