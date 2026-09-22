@@ -180,8 +180,8 @@
      ============================================================ */
   const travelImages = [
     { src: 'images/travel1.jpg', caption: 'Misty mountains · Nepal' },
-    { src: 'images/travel2.jpg', caption: 'Sunset beach · Thailand' },
-    { src: 'images/travel3.jpg', caption: 'Old town · Prague' },
+    { src: 'images/travel2.jpg', caption: 'Old town · Prague' },
+    { src: 'images/travel3.jpg', caption: 'Mount Bonnell· Austin' },
     { src: 'images/travel4.jpg', caption: 'Redwood forest · California' },
     { src: 'images/travel5.jpg', caption: 'SF Bay Views · Berkeley' },
     { src: 'images/travel6.jpg', caption: 'Tidal Basin · DC' }
