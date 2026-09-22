@@ -179,7 +179,7 @@
      6. TRAVEL GALLERY + LIGHTBOX
      ============================================================ */
   const travelImages = [
-    { src: 'images/travel1.jpg', caption: 'Barcelona · Spain' },
+    { src: 'images/travel1.jpg', caption: 'Cape Cod, Massachusetts' },
     { src: 'images/travel2.jpg', caption: 'Old town · Prague' },
     { src: 'images/travel3.jpg', caption: 'Mount Bonnell· Austin' },
     { src: 'images/travel4.jpg', caption: 'Redwood forest · California' },
